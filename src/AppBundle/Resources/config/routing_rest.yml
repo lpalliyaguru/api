@@ -1,0 +1,9 @@
+users :
+  type: rest
+  resource: "AppBundle:User"
+  name_prefix:  api_
+
+organisations :
+  type: rest
+  resource: "AppBundle:Organisation"
+  name_prefix:  api_
