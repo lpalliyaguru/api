@@ -21,4 +21,16 @@ class UserController extends Controller
             'entities' => $entities,
         );
     }
+
+    public function addPostAction()
+    {
+        $postManager    = $this->get('manager.post');
+        $postData       = array(
+            'title' => 'Sample title2',
+            'content' => 'Sample Content 2'
+        );
+
+        $postManager->savePost($postData);
+        return $postData;
+    }
 }

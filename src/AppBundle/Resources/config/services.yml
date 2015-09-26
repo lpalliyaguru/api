@@ -1,4 +1,7 @@
+parameters:
+  class.manager.post : AppBundle\Service\PostManager
+
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+  manager.post:
+    class : %class.manager.post%
+    arguments: [@doctrine_mongodb, @security.context]
