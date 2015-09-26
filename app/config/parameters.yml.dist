@@ -17,3 +17,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    mongo_database_host: mongodb://localhost:27017/e2e-api
+    mongo_database_name: e2e-api
+    mongo_database_username: admin
+    mongo_database_password: admin
