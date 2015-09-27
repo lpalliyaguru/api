@@ -21,3 +21,4 @@ parameters:
     mongo_database_name: e2e-api
     mongo_database_username: admin
     mongo_database_password: admin
+    app_main_web_site : 'http://e2e.local'
