@@ -31,6 +31,31 @@ class User
     private $email;
 
     /**
+     * @ODM\String
+     */
+    private $type;
+
+    /**
+     * @ODM\String
+     */
+    private $profile_pic;
+
+    /**
+     * @ODM\String
+     */
+    private $phone;
+
+    /**
+     * @ODM\Date
+     */
+    private $created;
+
+    /**
+     * @ODM\Date
+     */
+    private $updated;
+
+    /**
      * Get id
      *
      * @return integer
@@ -38,6 +63,17 @@ class User
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -87,33 +123,118 @@ class User
     }
 
     /**
-     * Set age
+     * Set email
      *
-     * @param integer $age
+     * @param string $email
      * @return User
      */
-    public function setAge($age)
+    public function setType($type)
     {
-        $this->age = $age;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get age
-     * @return integer
+     * Get email
+     *
+     * @return string
      */
-    public function getAge()
+    public function getType()
     {
-        return $this->age;
+        return $this->type;
     }
 
     /**
-     * @return string
-     * @VirtualProperty
+     * Set email
+     *
+     * @param string $email
+     * @return User
      */
-    public function getPreferedName()
+    public function setProfilePicture($profilePic)
     {
-        return 'preferred-' . $this->name;
+        $this->profile_pic = $profilePic;
+
+        return $this;
     }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getProfilePicture()
+    {
+        return $this->profile_pic;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
 }
