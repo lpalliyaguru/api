@@ -1,7 +1,14 @@
 parameters:
+  class.api.response.listener: AppBundle\Listener\ResponseListener
   class.manager.post : AppBundle\Service\PostManager
 
 services:
+  listner.api:
+    class: %class.api.response.listener%
+    arguments: [%app_main_web_site%]
+    tags:
+      - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
   manager.post:
     class : %class.manager.post%
     arguments: [@doctrine_mongodb, @security.context]

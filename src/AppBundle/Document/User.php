@@ -2,56 +2,33 @@
 
 namespace AppBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use AppBundle\Entity\Organisation;
 use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\Annotation\Exclude;
 
 /**
- * User
+ * @ODM\Document
+ * @ODM\Document(repositoryClass="AppBundle\Document\UserRepository")
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
  */
 class User
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ODM\Id
      */
     private $id;
 
     /**
-     * @var string
-     * @Expose
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ODM\String
      */
     private $name;
 
     /**
-     * @var string
-     * @Expose
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ODM\String
      */
     private $email;
-
-    /**
-     * @var integer
-     * @Exclude
-     * @ORM\Column(name="age", type="integer")
-     */
-    private $age;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Organisation", inversedBy="users")
-     *
-     * @var Organisation $organisation
-     */
-    private $organisation;
 
     /**
      * Get id

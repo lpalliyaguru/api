@@ -9,14 +9,6 @@ use JMS\Serializer\Serializer;
 class ApiVersionListener
 {
 
-    private $serializer;
-
-    public function setSerializer(Serializer $serializer)
-    {
-        $this->serializer = $serializer;
-
-    }
-
     public function onKernelRequest(GetResponseEvent $event)
     {
 
