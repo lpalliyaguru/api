@@ -9,6 +9,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    data_dir : %kernel.root_dir%/Resources/Data
 
 framework:
     #esi:             ~
