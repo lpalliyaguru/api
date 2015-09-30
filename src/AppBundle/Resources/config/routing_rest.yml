@@ -7,3 +7,9 @@ organisations :
   type: rest
   resource: "AppBundle:Organisation"
   name_prefix:  api_
+
+Properties :
+  type: rest
+  resource: "AppBundle:Properties"
+  name_prefix:  api_
+

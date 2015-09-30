@@ -6,7 +6,6 @@ namespace AppBundle\DataFixtures\MongoDB;
 use AppBundle\Document\Location;
 use AppBundle\Document\Preferred;
 use AppBundle\Document\Property;
-use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -36,13 +35,15 @@ class PropertyFixture implements FixtureInterface, ContainerAwareInterface
                 ->setType($propertyData['type'])
             ;
             if(isset($propertyData['location'])) {
-                $location = new Location();
-                $location->x = $propertyData['location']['lat'];
-                $location->y = $propertyData['location']['lng'];
+                error_log('adding location');
+                $location       = new Location();
+                $location->x    = $propertyData['location']['lat'];
+                $location->y    = $propertyData['location']['lng'];
+                $property->setLocation($location);
             }
-            $preferred = new Preferred();
 
-            $preferred->gender = 'male';
+            $preferred              = new Preferred();
+            $preferred->gender      = 'male';
             $preferred->nationality = 'sri lankan';
             $property->setPreferred($preferred);
             $manager->persist($property);
@@ -53,8 +54,8 @@ class PropertyFixture implements FixtureInterface, ContainerAwareInterface
 
     private function getProperties()
     {
-        $file = $this->container->getParameter('data_dir') . '/properties.json';
-        $properties = json_decode(file_get_contents($file), true);
+        $file           = $this->container->getParameter('data_dir') . '/properties.json';
+        $properties     = json_decode(file_get_contents($file), true);
         return $properties;
     }
 

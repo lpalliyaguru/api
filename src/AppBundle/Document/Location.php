@@ -11,8 +11,14 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
  */
 class Location
 {
+    /**
+     * @ODM\String
+     */
     public $x;
 
+    /**
+     * @ODM\String
+     */
     public $y;
 
 }
