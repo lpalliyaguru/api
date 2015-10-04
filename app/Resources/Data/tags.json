@@ -1,0 +1,26 @@
+[
+  {
+    "id" : 1,
+    "name" : "INSEAD",
+    "type" : "campus",
+    "icon" : "fa-university"
+  },
+  {
+    "id" : 2,
+    "name" : "FushionPolise",
+    "type" : "building",
+    "icon" : "fa-building"
+  },
+  {
+    "id" : 3,
+    "name" : "BioPolise",
+    "type" : "building",
+    "icon" : "fa-building"
+  },
+  {
+    "id" : 4,
+    "name" : "Bounavista",
+    "type" : "station",
+    "icon" : "fa-train"
+  }
+]

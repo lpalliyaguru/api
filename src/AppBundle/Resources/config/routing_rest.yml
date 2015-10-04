@@ -13,3 +13,7 @@ Properties :
   resource: "AppBundle:Properties"
   name_prefix:  api_
 
+Tags :
+  type: rest
+  resource: "AppBundle:Tags"
+  name_prefix:  api_
