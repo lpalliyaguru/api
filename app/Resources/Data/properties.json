@@ -59,11 +59,11 @@
     },
     "created" : "2015-09-27T08:12:08",
     "updated" : "2015-09-27T08:12:08"
-
-  },
+  }
+  ,
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
+    "name": "BLOCK 631",
+    "address": "D20 - Ang Mo Kio / Bishan / Thomson, Serangoon / Thomson (D19-20)",
     "zip": "640630",
     "location": {
       "lat": "1.350022",
