@@ -30,10 +30,40 @@
     "updated" : "2015-09-27T08:12:08"
 
   },
-
   {
     "name": "BLOCK 630",
     "address": "630 Jurong West Street 74",
+    "zip": "640630",
+    "location": {
+      "lat": "1.350022",
+      "lng" : "103.700756"
+    },
+    "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
+    "owner" : "560663e1555e61a01200002a",
+    "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
+    "type": "HDB",
+    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
+    "price" : "S$ 2,900 / month   Negotiable ",
+    "price_psf" : "S$ 1.98 psf (built-up)",
+    "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
+    "tenure" : "99-year Leasehold",
+    "condition":"Fully Furnished",
+    "lease_term": "One year",
+    "special" : ["City View", "Renovated", "High Floor"],
+    "bed_rooms":"3",
+    "bath_rooms" : "2",
+    "smoking": "no",
+    "preferred" : {
+      "gender" : "male",
+      "nationality":"Sri lankan"
+    },
+    "created" : "2015-09-27T08:12:08",
+    "updated" : "2015-09-27T08:12:08"
+  }
+  ,
+  {
+    "name": "BLOCK 631",
+    "address": "D20 - Ang Mo Kio / Bishan / Thomson, Serangoon / Thomson (D19-20)",
     "zip": "640630",
     "location": {
       "lat": "1.350022",
