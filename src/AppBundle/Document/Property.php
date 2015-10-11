@@ -10,7 +10,7 @@ use AppBundle\Document\Preferred;
 
 /**
  * @ODM\Document
- * @ODM\Document(repositoryClass="AppBundle\Document\PropertyRepository")
+ * @ODM\Document(repositoryClass="AppBundle\Document\Repository\PropertyRepository")
  *
  */
 class Property

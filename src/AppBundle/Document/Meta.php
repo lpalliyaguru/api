@@ -2,22 +2,20 @@
 
 namespace AppBundle\Document;
 
-use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
-
 /**
  * Class Location
  * @ODM\EmbeddedDocument
  * @package AppBundle\Document
  */
-class Location
+class Meta
 {
     /**
-     * @ODM\String
+     * @ODM\Date
      */
-    public $x;
+    public $created;
 
     /**
-     * @ODM\String
+     * @ODM\Date
      */
-    public $y;
+    public $updated;
 }

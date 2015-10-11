@@ -1,0 +1,10 @@
+{
+    "name": "INSEAD",
+    "type": "university",
+    "addr": "1 Ayer rajah avenue, singapore",
+    "zipc": "123455",
+    "locn": {
+        "x": 1.344545,
+        "y": 86.454545
+    }
+}

@@ -1,7 +1,6 @@
 <?php
 
-namespace AppBundle\Document;
-
+namespace AppBundle\Document\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
 
