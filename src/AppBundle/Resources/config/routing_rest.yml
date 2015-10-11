@@ -13,7 +13,7 @@ Properties :
   resource: "AppBundle:Properties"
   name_prefix:  api_
 
-Tags :
+Places :
   type: rest
-  resource: "AppBundle:Tags"
+  resource: "AppBundle:Places"
   name_prefix:  api_

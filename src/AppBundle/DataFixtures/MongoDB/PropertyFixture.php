@@ -4,6 +4,7 @@ namespace AppBundle\DataFixtures\MongoDB;
 
 
 use AppBundle\Document\Location;
+use AppBundle\Document\Meta;
 use AppBundle\Document\Preferred;
 use AppBundle\Document\Property;
 use Doctrine\Common\DataFixtures\FixtureInterface;
@@ -46,6 +47,9 @@ class PropertyFixture implements FixtureInterface, ContainerAwareInterface
             $preferred->gender      = 'male';
             $preferred->nationality = 'sri lankan';
             $property->setPreferred($preferred);
+            $meta = new Meta();
+            $meta->created = $meta->updated = new \DateTime();
+            $property->setMeta($meta);
             $manager->persist($property);
 
         }

@@ -46,6 +46,11 @@ class Place
     protected $location;
 
     /**
+     * @ODM\String
+     */
+    protected $googleId;
+
+    /**
      * @ODM\EmbedOne(targetDocument="Meta")
      */
     protected $__meta;
@@ -141,4 +146,98 @@ class Place
         return $this->__meta;
     }
 
+    /**
+     * Set Meta data
+     *
+     * @param Meta $meta
+     * @return Place
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get Meta data
+     *
+     * @param Meta $meta
+     * @return Meta
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set Meta data
+     *
+     * @param Meta $meta
+     * @return Place
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get Meta data
+     *
+     * @param Meta $meta
+     * @return Meta
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set Zip code
+     *
+     * @param Meta $meta
+     * @return Place
+     */
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Get Meta data
+     *
+     * @param String $zip
+     * @return Meta
+     */
+    public function getZip()
+    {
+        return $this->zip;
+    }
+
+    /**
+     * Set Meta data
+     *
+     * @param String $googleId
+     * @return Place
+     */
+    public function setGoogleId($googleId)
+    {
+        $this->googleId = $googleId;
+
+        return $this;
+    }
+
+    /**
+     * Get Google ID
+     *
+     * @return String
+     */
+    public function getGoogleId()
+    {
+        return $this->googleId;
+    }
 }

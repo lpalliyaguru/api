@@ -2,6 +2,7 @@ parameters:
   class.api.response.listener : AppBundle\Listener\ResponseListener
   class.manager.post          : AppBundle\Service\PostManager
   class.manager.property      : AppBundle\Service\Manager\PropertyManager
+  class.manager.places        : AppBundle\Service\Manager\PlacesManager
 
 services:
   listner.api:
@@ -17,3 +18,7 @@ services:
   manager.property:
       class : %class.manager.property%
       arguments: [@doctrine_mongodb]
+
+  manager.places:
+        class : %class.manager.places%
+        arguments: [@doctrine_mongodb]

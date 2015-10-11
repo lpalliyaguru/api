@@ -2,7 +2,6 @@
 
 namespace AppBundle\Service\Manager;
 
-
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 
 class PropertyManager

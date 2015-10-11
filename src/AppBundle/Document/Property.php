@@ -120,14 +120,9 @@ class Property
     protected $preferred;
 
     /**
-     * @ODM\Date
+     * @ODM\EmbedOne(targetDocument="Meta")
      */
-    protected $created;
-
-    /**
-     * @ODM\Date
-     */
-    protected $updated;
+    protected $__meta;
 
     public function setId($id)
     {
@@ -371,15 +366,14 @@ class Property
         return $this->created;
     }
 
-    public function setUpdated($updated)
+    public function setMeta($meta)
     {
-        $this->updated = $updated;
+        $this->__meta = $meta;
         return $this;
     }
 
-    public function getUpdated()
+    public function getMeta()
     {
-        return $this->updated;
+        return $this->__meta;
     }
-
 }

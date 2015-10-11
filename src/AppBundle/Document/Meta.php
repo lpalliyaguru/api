@@ -2,6 +2,8 @@
 
 namespace AppBundle\Document;
 
+use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+
 /**
  * Class Location
  * @ODM\EmbeddedDocument
