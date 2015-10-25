@@ -24,7 +24,7 @@ class PlacesController extends Controller
         );
     }
 
-    public function getSearchPlacesAction(Request $request)
+    public function getPlacesSearchAction(Request $request)
     {
         $keyWord = $request->query->get('keyword');
 
@@ -32,10 +32,9 @@ class PlacesController extends Controller
         $places         = $placeManager->getByKeyword($keyWord);
 
         return array(
-            "total_count"           => 6964,
-            "incomplete_results"    => false,
-            'items'                  => $places
-        );
+            'success'   => true,
+            'data'      => $places
+         );
 
     }
 }
