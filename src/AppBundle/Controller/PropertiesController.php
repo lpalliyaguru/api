@@ -16,4 +16,22 @@ class PropertiesController extends Controller
             'properties' => $propertyManager->getAll(),
         );
     }
+
+    public function getPropertiesSearchAction()
+    {
+
+    }
+
+    public function postPropertiesAction()
+    {
+
+    }
+
+    public function getPropertyAction($id)
+    {
+        $propertyManager = $this->get('manager.property');
+        return array(
+            'property' => $propertyManager->getOneById($id)
+        );
+    }
 }

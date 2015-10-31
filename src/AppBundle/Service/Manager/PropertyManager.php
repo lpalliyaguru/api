@@ -20,5 +20,10 @@ class PropertyManager
         return $this->documentManager->createQueryBuilder('AppBundle:Property')->getQuery()->execute()->toArray();
     }
 
+    public function getOneById($id)
+    {
+        return $qb = $this->repository->find($id);
+        
+    }
 
 }

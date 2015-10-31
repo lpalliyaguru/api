@@ -12,7 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 class PlacesController extends Controller
 {
 
-    public function getPlacesAllAction(Request $request)
+    public function getPlacesAction(Request $request)
     {
         $placeManager   = $this->get('manager.places');
         $places         = $placeManager->getAll();
