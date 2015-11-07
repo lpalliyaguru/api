@@ -1,467 +1,572 @@
 [
   {
-    "name": "757 Jurong West Street 74",
-    "address": "5A Blk 757 Jurong West Street 74",
-    "zip": "640757",
+    "name": "HDB Apartment For Sale - 273B Compassvale Link (D19)",
+    "address": "273B Compassvale Link",
+    "zip": "542273",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.384590",
+      "lng": "103.894952"
     },
     "tags": "Gek Poh,MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
-    "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
+    "owner": "560663e1555e61a01200002a",
+    "description": "542273",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "asd",
+    "address": "86 Commonwealth Close, ",
+    "zip": "140086",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.304314",
+      "lng": "103.799192"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-  }
-  ,
-  {
-    "name": "BLOCK 631",
-    "address": "D20 - Ang Mo Kio / Bishan / Thomson, Serangoon / Thomson (D19-20)",
-    "zip": "640630",
-    "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
-    },
-    "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
-    "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
-    "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
-    "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
-    "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
-    "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
-    },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 18 Dover Crescent (D05)",
+    "address": "18 Dover Crescent,",
+    "zip": "130018",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.307883",
+      "lng": "103.783059"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 336 Clementi Avenue 2(D05)",
+    "address": "336 Clementi Avenue 2",
+    "zip": "120336",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.316477",
+      "lng": "103.769148"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 28B Dover Crescent (D05)",
+    "address": "28B Dover Crescent, 132028",
+    "zip": "132028",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.305403",
+      "lng": "103.781726"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - Flat Sharing - New Master Room @ Buona Vista (D10)",
+    "address": " @ Buona Vista",
+    "zip": "270028",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.308758",
+      "lng": "103.785101"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 168A Queensway (D03)",
+    "address": "168A Queensway, 140168",
+    "zip": "140168",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.288576",
+      "lng": "103.803686"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 107 Bukit Purmei Road (D04)",
+    "address": "107 Bukit Purmei Road, 090107",
+    "zip": "090107",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.272964",
+      "lng": "103.824444"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 14A Telok Blangah Crescent (D04)",
+    "address": "14A Telok Blangah Crescent, 091014",
+    "zip": "091014",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.277966",
+      "lng": "103.820416"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 139 Potong Pasir Avenue 3 (D13)",
+    "address": "139 Potong Pasir Avenue 3, 350139",
+    "zip": "350139",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.333137",
+      "lng": "103.865744"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 25 Toa Payoh East (D12)",
+    "address": "25 Toa Payoh East, 310025 ",
+    "zip": "310025",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.333493",
+      "lng": "103.856818"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 72 Geylang Bahru (D12)",
+    "address": "72 Geylang Bahru, 330072",
+    "zip": "330072",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.321758",
+      "lng": "103.871050"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 82 Whampoa Drive (D12)",
+    "address": "82 Whampoa Drive, 320082",
+    "zip": "320082",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.323759",
+      "lng": "103.856307"
     },
     "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   },
   {
-    "name": "BLOCK 630",
-    "address": "630 Jurong West Street 74",
-    "zip": "640630",
+    "name": "HDB Apartment For Rent - 830 Woodlands Street 83 (D25)",
+    "address": "830 Woodlands Street 83",
+    "zip": "730830",
     "location": {
-      "lat": "1.350022",
-      "lng" : "103.700756"
+      "lat": "1.439255",
+      "lng": "103.790638"
+    },
+    "tags": "Jurong point, MacDonald,Sheng Siong, Police, Jurong Primary School",
+    "owner": "560663e1555e61a01200002a",
+    "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
+    "type": "HDB",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
+    "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
+    "lease_term": "One year",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
+    "smoking": "no",
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
+    },
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
+  },
+  {
+    "name": "HDB Apartment For Rent - 612 Woodlands Avenue 4 (D25)",
+    "address": "612 Woodlands Avenue 4, 730612 ",
+    "zip": "730612",
+    "location": {
+      "lat": "1.434832",
+      "lng": "103.796258"
     },
     "tags": "Jurong point, MacDonald, Sheng Siong, Police, Jurong Primary School",
-    "owner" : "560663e1555e61a01200002a",
+    "owner": "560663e1555e61a01200002a",
     "description": "HDB APPROVED 5A Blk 757 Jurong West Street 74 Singapore 640757 4 Bedrooms 1 Attach & 1 Common  Toilets 1463 Sq Ft Fully Aircon Fully Furnished High Floor Renovated Move In Condition Asking $3000 Buy/Sell /Rent Enquiries  Welcome",
     "type": "HDB",
-    "images": ["image1.jpg", "image2.jpg", "image3.jpg"],
-    "price" : "S$ 2,900 / month   Negotiable ",
-    "price_psf" : "S$ 1.98 psf (built-up)",
+    "images": [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg"
+    ],
+    "price": "S$ 2,900 / month   Negotiable ",
+    "price_psf": "S$ 1.98 psf (built-up)",
     "floor_area": "1,463 sqft / 135.92 sqm (built-up)",
-    "tenure" : "99-year Leasehold",
-    "condition":"Fully Furnished",
+    "tenure": "99-year Leasehold",
+    "condition": "Fully Furnished",
     "lease_term": "One year",
-    "special" : ["City View", "Renovated", "High Floor"],
-    "bed_rooms":"3",
-    "bath_rooms" : "2",
+    "special": [
+      "City View",
+      "Renovated",
+      "High Floor"
+    ],
+    "bed_rooms": "3",
+    "bath_rooms": "2",
     "smoking": "no",
-    "preferred" : {
-      "gender" : "male",
-      "nationality":"Sri lankan"
+    "preferred": {
+      "gender": "male",
+      "nationality": "Sri lankan"
     },
-    "created" : "2015-09-27T08:12:08",
-    "updated" : "2015-09-27T08:12:08"
-
+    "created": "2015-09-27T08:12:08",
+    "updated": "2015-09-27T08:12:08"
   }
 ]
