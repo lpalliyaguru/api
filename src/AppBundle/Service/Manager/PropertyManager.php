@@ -3,12 +3,14 @@
 namespace AppBundle\Service\Manager;
 
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
+use Doctrine\Common\Util\Debug;
 
 class PropertyManager
 {
     protected $documentManager;
     protected $repository;
     protected $properties;
+    protected $propertyIds;
 
     public function __construct(ManagerRegistry $registryManager)
     {
@@ -29,18 +31,23 @@ class PropertyManager
 
     public function searchProperties($places, $rent, $sale)
     {
-        $this->properties = array();
+        $this->properties = $this->propertyIds = array();
 
         foreach ($places as $place) {
-            $places = $this->repository->search($place, $rent, $sale);
-            $places = $this->removeDuplicates($places);
-            $this->properties = array_merge($this->properties, $places);
+            $properties = $this->repository->search($place, $rent, $sale);
+            $this->pushProperties($properties);
 
         }
+        return $this->properties;
     }
 
-    public function removeDuplicates()
+    public function pushProperties($properties)
     {
-
+        foreach($properties as $property) {
+            if(array_search($property->getId(), $this->propertyIds) === false) {
+                $this->properties[] = $property;
+                $this->propertyIds[] = $property;
+            }
+        }
     }
 }

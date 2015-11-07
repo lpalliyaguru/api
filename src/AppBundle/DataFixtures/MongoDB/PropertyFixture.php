@@ -34,12 +34,13 @@ class PropertyFixture implements FixtureInterface, ContainerAwareInterface
                 ->setCondition($propertyData['condition'])
                 ->setDescription($propertyData['description'])
                 ->setType($propertyData['type'])
+                ->setZip($propertyData['zip'])
             ;
             if(isset($propertyData['location'])) {
 
                 $location       = new Location();
-                $location->coordinates[0]    = (float)$propertyData['location']['lng'];
-                $location->coordinates[1]    = (float)$propertyData['location']['lat'];
+                $location->coordinates[1]    = (float)$propertyData['location']['lng'];
+                $location->coordinates[0]    = (float)$propertyData['location']['lat'];
                 $property->setLocation($location);
             }
 
