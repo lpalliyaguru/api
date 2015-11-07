@@ -27,13 +27,17 @@ class PropertiesController extends Controller
         $sale           = $request->query->get('sale');
         $placeIdList    = explode(',', $placeIdList);
 
+        return array(
+            'properties' => $propertyManager->getAll(),
+        );
+        /*
         $places = $placeManager->getPlacesByIds($placeIdList);
 
         $properties = $propertyManager->searchProperties($places, $rent, $sale);
 
         return array(
             'properties' => $properties,
-        );
+        );*/
     }
 
     public function postPropertiesAction()
