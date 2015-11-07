@@ -17,9 +17,23 @@ class PropertiesController extends Controller
         );
     }
 
-    public function getPropertiesSearchAction()
+    public function getPropertiesSearchAction(Request $request)
     {
+        $propertyManager    = $this->get('manager.property');
+        $placeManager       = $this->get('manager.place');
 
+        $placeIdList    = $request->query->get('places');
+        $rent           = $request->query->get('rent');
+        $sale           = $request->query->get('sale');
+        $placeIdList    = explode(',', $placeIdList);
+
+        $places = $placeManager->getPlacesByIds($placeIdList);
+
+        $properties = $propertyManager->searchProperties($places, $rent, $sale);
+
+        return array(
+            'properties' => $properties,
+        );
     }
 
     public function postPropertiesAction()

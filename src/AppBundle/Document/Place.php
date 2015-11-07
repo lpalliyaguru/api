@@ -187,7 +187,7 @@ class Place
      * Get Meta data
      *
      * @param Meta $meta
-     * @return Meta
+     * @return Location
      */
     public function getLocation()
     {

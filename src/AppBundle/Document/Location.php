@@ -14,10 +14,15 @@ class Location
     /**
      * @ODM\String
      */
-    public $x;
+    public $type;
 
     /**
-     * @ODM\String
+     * @ODM\Collection
      */
-    public $y;
+    public $coordinates = array();
+
+    public function __construct()
+    {
+        $this->type = 'Point';
+    }
 }

@@ -4,7 +4,7 @@ namespace AppBundle\Service\Manager;
 
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 
-class PlacesManager
+class PlaceManager
 {
 
     protected $documentManager;
@@ -32,4 +32,17 @@ class PlacesManager
         return $places;
     }
 
+    public function getOne($id)
+    {
+        return $this->repository->find($id);
+    }
+
+    public function getPlacesByIds($list)
+    {
+        $places = array();
+        foreach ($list as $id) {
+            $places[] = $this->getOne($id);
+        }
+        return $places;
+    }
 }

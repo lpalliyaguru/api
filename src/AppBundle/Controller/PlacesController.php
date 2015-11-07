@@ -14,7 +14,7 @@ class PlacesController extends Controller
 
     public function getPlacesAction(Request $request)
     {
-        $placeManager   = $this->get('manager.places');
+        $placeManager   = $this->get('manager.place');
         $places         = $placeManager->getAll();
 
         return array(
@@ -26,9 +26,9 @@ class PlacesController extends Controller
 
     public function getPlacesSearchAction(Request $request)
     {
-        $keyWord = $request->query->get('keyword');
+        $keyWord = $request->query->get('query');
 
-        $placeManager   = $this->get('manager.places');
+        $placeManager   = $this->get('manager.place');
         $places         = $placeManager->getByKeyword($keyWord);
 
         return array(

@@ -36,10 +36,10 @@ class PropertyFixture implements FixtureInterface, ContainerAwareInterface
                 ->setType($propertyData['type'])
             ;
             if(isset($propertyData['location'])) {
-                error_log('adding location');
+
                 $location       = new Location();
-                $location->x    = $propertyData['location']['lat'];
-                $location->y    = $propertyData['location']['lng'];
+                $location->coordinates[0]    = (float)$propertyData['location']['lng'];
+                $location->coordinates[1]    = (float)$propertyData['location']['lat'];
                 $property->setLocation($location);
             }
 

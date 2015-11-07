@@ -39,8 +39,8 @@ class PlaceFixture implements FixtureInterface, ContainerAwareInterface
 
             if(isset($placeData['geometry']['location'])) {
                 $location       = new Location();
-                $location->x    = $placeData['geometry']['location']['lat'];
-                $location->y    = $placeData['geometry']['location']['lng'];
+                $location->coordinates[0]    = (float)$placeData['geometry']['location']['lng'];
+                $location->coordinates[1]    = (float)$placeData['geometry']['location']['lat'];
                 $place->setLocation($location);
             }
 
