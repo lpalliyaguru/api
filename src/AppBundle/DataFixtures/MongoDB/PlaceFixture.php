@@ -26,7 +26,8 @@ class PlaceFixture implements FixtureInterface, ContainerAwareInterface
 
     public function load(ObjectManager $manager)
     {
-        $latlng = '1.436949,103.786976';
+
+        $latlng = $this->container->getParameter('data_dir') . '/places.json';
         $places = $this->getPlaces($latlng);
 
         foreach($places as $placeData) {
