@@ -46,7 +46,7 @@ class PropertyManager
         foreach($properties as $property) {
             if(array_search($property->getId(), $this->propertyIds) === false) {
                 $this->properties[] = $property;
-                $this->propertyIds[] = $property;
+                $this->propertyIds[] = $property->getId();
             }
         }
     }
