@@ -7,7 +7,7 @@ parameters:
 services:
   listner.api:
     class: %class.api.response.listener%
-    arguments: [%app_main_web_site%]
+    arguments: [%app_main_web_site%, %accepted_http_methods%]
     tags:
       - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
 

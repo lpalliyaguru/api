@@ -22,3 +22,5 @@ parameters:
     mongo_database_username: admin
     mongo_database_password: admin
     app_main_web_site : 'http://e2e.local'
+    accepted_http_methods : 'GET,POST,PUT,OPTIONS,DELETE,UNLINK'
+    env: 'LOCAL'
