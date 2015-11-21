@@ -3,6 +3,7 @@
 namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use JMS\Serializer\Annotation\Exclude;
 
 use AppBundle\Document\Location;
 use AppBundle\Document\User;
@@ -15,6 +16,14 @@ use AppBundle\Document\Preferred;
  */
 class Property
 {
+    /**
+     * @Exclude
+     */
+    static $types = array(
+        'HDB' => 'HDB',
+        'LND' => 'Landed House',
+        'CND' => 'Condo'
+    );
     /**
      * @ODM\Id
      */
@@ -62,7 +71,7 @@ class Property
     /**
      * @ODM\Collection
      */
-    protected $images;
+    protected $images = array();
 
     /**
      * @ODM\String

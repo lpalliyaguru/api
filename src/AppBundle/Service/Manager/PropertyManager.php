@@ -26,7 +26,6 @@ class PropertyManager
     public function getOneById($id)
     {
         return $qb = $this->repository->find($id);
-
     }
 
     public function searchProperties($places, $rent, $sale)
@@ -49,5 +48,12 @@ class PropertyManager
                 $this->propertyIds[] = $property->getId();
             }
         }
+    }
+
+    public function save($property)
+    {
+        $this->documentManager->persist($property);
+        $this->documentManager->flush();
+        return true;
     }
 }
