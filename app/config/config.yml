@@ -99,3 +99,18 @@ doctrine_mongodb:
     default_document_manager:  ~
     default_connection:   ~
     default_database:     default
+
+knp_gaufrette:
+    adapters:
+        profile_photos:
+            aws_s3:
+                service_id: 'e2e.aws_s3.client'
+                bucket_name: %amazon_s3_bucket_name%
+                options:
+                    directory: 'assets'
+                    create: true
+
+    filesystems:
+        photo_storage:
+            adapter:    profile_photos
+            alias:      photo_storage_filesystem

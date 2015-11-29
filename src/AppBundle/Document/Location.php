@@ -25,4 +25,10 @@ class Location
     {
         $this->type = 'Point';
     }
+
+    public function cleanCoords()
+    {
+        $this->coordinates[0] = floatval($this->coordinates[0]);
+        $this->coordinates[1] = floatval($this->coordinates[1]);
+    }
 }

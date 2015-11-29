@@ -69,9 +69,9 @@ class Property
     protected $type;
 
     /**
-     * @ODM\Collection
+     * @ODM\EmbedOne(targetDocument="PropertyAsset")
      */
-    protected $images = array();
+    protected $asset;
 
     /**
      * @ODM\String
@@ -232,17 +232,6 @@ class Property
         return $this->type;
     }
 
-    public function setImages($images)
-    {
-        $this->images = $images;
-        return $this;
-    }
-
-    public function getImages()
-    {
-        return $this->images;
-    }
-
     public function setPrice($price)
     {
         $this->price = $price;
@@ -252,6 +241,17 @@ class Property
     public function getPrice()
     {
         return $this->price;
+    }
+
+    public function setAsset($asset)
+    {
+        $this->asset = $asset;
+        return $this;
+    }
+
+    public function getAsset()
+    {
+        return $this->asset;
     }
 
     public function setPricePSF($pricePSF)

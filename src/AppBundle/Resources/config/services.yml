@@ -3,6 +3,8 @@ parameters:
   class.manager.post          : AppBundle\Service\PostManager
   class.manager.property      : AppBundle\Service\Manager\PropertyManager
   class.manager.place         : AppBundle\Service\Manager\PlaceManager
+  class.core.amazon_s3        : AmazonS3
+  class.manager.media         : AppBundle\Service\Manager\MediaManager
 
 services:
   listner.api:
@@ -22,3 +24,25 @@ services:
   manager.place:
         class : %class.manager.place%
         arguments: [@doctrine_mongodb]
+
+  e2e_core.amazon_s3:
+      class: %class.core.amazon_s3%
+      arguments:
+           - { key: %amazon_aws_key%, secret: %amazon_aws_secret_key% }
+
+  manager.media:
+      class: %class.manager.media%
+      arguments: [@photo_storage_filesystem]
+
+  e2e.aws_s3.client:
+      class: Aws\S3\S3Client
+      factory_class: Aws\S3\S3Client
+      factory_method: 'factory'
+      arguments:
+          -   credentials:
+                key: %amazon_aws_key%
+                secret: %amazon_aws_secret_key%
+              region : 'ap-southeast-1'
+              version : 'latest'
+              http :
+                 { verify : false }
