@@ -18,7 +18,7 @@ class PropertyAsset
     /**
      * @ODM\Collection
      */
-    protected $images;
+    protected $images = array();
 
     public function getCoverImage()
     {

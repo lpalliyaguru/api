@@ -7,6 +7,7 @@ use AppBundle\Document\Location;
 use AppBundle\Document\Meta;
 use AppBundle\Document\Preferred;
 use AppBundle\Document\Property;
+use AppBundle\Document\PropertyAsset;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -48,6 +49,8 @@ class PropertyFixture implements FixtureInterface, ContainerAwareInterface
             $preferred->gender      = 'male';
             $preferred->nationality = 'sri lankan';
             $property->setPreferred($preferred);
+            $asset = new PropertyAsset();
+            $property->setAsset($asset);
             $meta = new Meta();
             $meta->created = $meta->updated = new \DateTime();
             $property->setMeta($meta);
