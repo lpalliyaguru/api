@@ -66,5 +66,4 @@ class PropertyFixture implements FixtureInterface, ContainerAwareInterface
         $properties     = json_decode(file_get_contents($file), true);
         return $properties;
     }
-
 }

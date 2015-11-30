@@ -1,21 +1,20 @@
 <?php
 
-namespace AppBundle\DataFixtures\MongoDB;
-
+namespace AppBundle\DataFixtures\MongoDB\Place;
 
 use AppBundle\Document\Location;
 use AppBundle\Document\Meta;
 use AppBundle\Document\Place;
 use AppBundle\Document\Preferred;
 
-use Buzz\Exception\RequestException;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Buzz\Browser;
 
-class PlaceFixture implements FixtureInterface, ContainerAwareInterface
+class PlaceFixture extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     private $container;
 
@@ -26,7 +25,7 @@ class PlaceFixture implements FixtureInterface, ContainerAwareInterface
 
     public function load(ObjectManager $manager)
     {
-        $latlng = $this->container->getParameter('data_dir') . '/places.json';
+        $latlng = file_get_contents($this->container->getParameter('data_dir') . '/places.json');
         $places = $this->getPlaces($latlng);
 
         foreach($places as $placeData) {
@@ -68,6 +67,7 @@ class PlaceFixture implements FixtureInterface, ContainerAwareInterface
 
             $response = file_get_contents($mapUrl . $params);
             $response = json_decode($response, true);
+
             if($response['status'] == 'OK') {
                 return $response['results'];
             }
@@ -77,5 +77,10 @@ class PlaceFixture implements FixtureInterface, ContainerAwareInterface
         }
 
         return array();
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 }
