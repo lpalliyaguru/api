@@ -37,7 +37,6 @@ class PropertiesController extends FOSRestController
     }
 
 
-
 	/**
      * @Get
 	 * @Route("properties/search")
@@ -99,10 +98,21 @@ class PropertiesController extends FOSRestController
         );
     }
 
+    /**
+     * @Get
+     * @Route("properties/{id}")
+     */
     public function getPropertyAction($id)
     {
         $propertyManager = $this->get('manager.property');
-        return $propertyManager->getOneById($id);
+
+        $view = $this
+            ->view($propertyManager->getOneById($id), 200)
+            ->setTemplate("AppBundle:Properties:getProperty.html.twig")
+            ->setTemplateVar('property')
+        ;
+
+        return $view;
     }
 
     /**
@@ -112,7 +122,7 @@ class PropertiesController extends FOSRestController
      */
     public function optionsPropertiesImagesAction(Request $request, $id)
     {
-
+        return $this->view(array(), 200);
     }
 
     /**
@@ -131,6 +141,7 @@ class PropertiesController extends FOSRestController
             $property = $propertyManger->getOneById($id);
 
             if(!$file instanceof UploadedFile) { throw new \Exception('Not a valid file'); }
+
             $fileName       = $mediaManager->upload($file, $s3Folder);
             $imageURL       = \sprintf('%s/%s', $cdn, $fileName);
             $property->getAsset()->addImage($imageURL);
