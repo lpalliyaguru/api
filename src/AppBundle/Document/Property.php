@@ -124,6 +124,11 @@ class Property
     protected $smoking;
 
     /**
+     * @ODM\Boolean
+     */
+    protected $published;
+
+    /**
      * @ODM\EmbedOne(targetDocument="Preferred")
      */
     protected $preferred;
@@ -381,6 +386,16 @@ class Property
         return $this;
     }
 
+    public function setPublished($flag)
+    {
+        $this->published = $flag;
+    }
+
+    public function getPublished()
+    {
+        return $this->published;
+    }
+    
     public function getMeta()
     {
         return $this->__meta;

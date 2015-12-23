@@ -59,6 +59,10 @@ class PropertyType extends AbstractType
                     'type'   => 'text'
                 )
             )
+            ->add(
+                'published',
+                'checkbox'
+            )
             /*->add(
                 'preferred',
                 'document',
