@@ -4,6 +4,7 @@ namespace AppBundle\Service\Manager;
 
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 use Doctrine\Common\Util\Debug;
+use AppBundle\Document\Property;
 
 class PropertyManager
 {
@@ -26,6 +27,34 @@ class PropertyManager
     public function getOneById($id)
     {
         return $qb = $this->repository->find($id);
+    }
+
+    public function addProperties()
+    {
+        $propertyData = array(
+          'name'        => 'Test',
+          'address'     => 'Test Address',
+          'condition'   => '',
+          'description' => '',
+          'type'        => 'Point',
+          'zip'         => '',
+        );
+
+        $property = new Property();
+
+        $property
+            ->setName($propertyData['name'])
+            ->setAddress($propertyData['address'])
+            ->setCondition($propertyData['condition'])
+            ->setDescription($propertyData['description'])
+            ->setType($propertyData['type'])
+            ->setZip($propertyData['zip'])
+        ;
+
+        $this->documentManager->persist($property);
+        $this->documentManager->flush();
+
+        return $property;
     }
 
     public function searchProperties($places, $rent, $sale)
