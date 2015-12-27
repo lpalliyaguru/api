@@ -2,6 +2,7 @@ parameters:
   class.api.response.listener : AppBundle\Listener\ResponseListener
   class.manager.post          : AppBundle\Service\PostManager
   class.manager.property      : AppBundle\Service\Manager\PropertyManager
+  class.manager.user          : AppBundle\Service\Manager\UserManager
   class.manager.place         : AppBundle\Service\Manager\PlaceManager
   class.core.amazon_s3        : AmazonS3
   class.manager.media         : AppBundle\Service\Manager\MediaManager
@@ -19,6 +20,10 @@ services:
 
   manager.property:
       class : %class.manager.property%
+      arguments: [@doctrine_mongodb]
+
+  manager.user:
+      class : %class.manager.user%
       arguments: [@doctrine_mongodb]
 
   manager.place:

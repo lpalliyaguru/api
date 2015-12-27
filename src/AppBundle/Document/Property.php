@@ -395,7 +395,7 @@ class Property
     {
         return $this->published;
     }
-    
+
     public function getMeta()
     {
         return $this->__meta;

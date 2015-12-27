@@ -2,35 +2,36 @@
 
 namespace AppBundle\Controller;
 
+use FOS\RestBundle\Controller\FOSRestController;
 use JMS\Serializer\SerializationContext;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class UserController extends Controller
+use FOS\RestBundle\Controller\Annotations\Route;
+use FOS\RestBundle\Controller\Annotations\Put;
+use FOS\RestBundle\Controller\Annotations\Post;
+use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Options;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
+class UserController extends FOSRestController
 {
 
-    public function getUsersAction(Request $request)
+    /**
+     * @Get
+     * @Route("users/{username}")
+     */
+    public function getUserAction(Request $request, $username)
     {
-        $em = $this->getDoctrine()->getManager();
+        $userManager = $this->get('manager.user');
 
-        $entities = $em->getRepository('AppBundle:User')->findAll();
+        $view = $this
+            ->view($userManager->getOneByUsername($username), 200)
+            ->setTemplate("AppBundle:User:getUser.html.twig")
+            ->setTemplateVar('user')
+        ;
 
-        return array(
-            'entities' => $entities,
-        );
-    }
-
-    public function addPostAction()
-    {
-        $postManager    = $this->get('manager.post');
-        $postData       = array(
-            'title' => 'Sample title2',
-            'content' => 'Sample Content 2'
-        );
-
-        $postManager->savePost($postData);
-        return $postData;
+        return $view;
     }
 }
