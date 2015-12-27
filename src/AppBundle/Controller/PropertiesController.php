@@ -36,6 +36,20 @@ class PropertiesController extends FOSRestController
         return $view;
     }
 
+    /**
+     * @Get
+     * @Route("properties/post")
+     */
+    public function getPropertiesPostAction(Request $request)
+    {
+        $propertyManager    = $this->get('manager.property');
+        $properties         = $propertyManager->addProperties();
+
+        return array(
+            'properties' => $properties,
+        );
+    }
+
 
 	/**
      * @Get
