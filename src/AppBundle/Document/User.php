@@ -3,22 +3,29 @@
 namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
-use AppBundle\Entity\Organisation;
+use AppBundle\Document\Property;
 use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\Annotation\Exclude;
 
 /**
  * @ODM\Document
- * @ODM\Document(repositoryClass="AppBundle\Document\UserRepository")
+ * @ODM\Document(repositoryClass="AppBundle\Document\Repository\UserRepository")
  *
  */
 class User
 {
+    const TYPE_LANDLORD = 'LANDLORD';
+    const TYPE_TENENT   = 'TENANT';
     /**
      * @ODM\Id
      */
     private $id;
+
+    /**
+     * @ODM\String
+     */
+    private $username;
 
     /**
      * @ODM\String
@@ -38,7 +45,7 @@ class User
     /**
      * @ODM\String
      */
-    private $profile_pic;
+    private $profilePic;
 
     /**
      * @ODM\String
@@ -54,6 +61,11 @@ class User
      * @ODM\Date
      */
     private $updated;
+
+    /**
+     * @ODM\ReferenceMany(targetDocument="Property")
+     */
+    private $properties;
 
     /**
      * Get id
@@ -153,7 +165,7 @@ class User
      */
     public function setProfilePicture($profilePic)
     {
-        $this->profile_pic = $profilePic;
+        $this->profilePic = $profilePic;
 
         return $this;
     }
@@ -165,7 +177,7 @@ class User
      */
     public function getProfilePicture()
     {
-        return $this->profile_pic;
+        return $this->profilePic;
     }
 
     /**
@@ -237,4 +249,49 @@ class User
         return $this->updated;
     }
 
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get Properties
+     *
+     * @return array
+     */
+    public function getProperties()
+    {
+        return $this->properties;
+    }
+
+    /**
+     * Set Properties
+     *
+     * @param array $properties
+     * @return User
+     */
+    public function setProperties($properties)
+    {
+        $this->properties = $properties;
+
+        return $this;
+    }
 }

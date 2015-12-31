@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Document\Location;
+use AppBundle\Document\Property;
 use AppBundle\Form\PropertyType;
-use Doctrine\Common\Util\Debug;
 use FOS\RestBundle\Controller\FOSRestController;
+use AppBundle\Document\PropertyAsset;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,8 +22,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class PropertiesController extends FOSRestController
 {
 	/**
-     * @Get
-     * @Route("properties")
+     * @Get("properties")
      */
     public function getPropertiesAction(Request $request)
     {
@@ -36,24 +37,8 @@ class PropertiesController extends FOSRestController
         return $view;
     }
 
-    /**
-     * @Get
-     * @Route("properties/post")
-     */
-    public function getPropertiesPostAction(Request $request)
-    {
-        $propertyManager    = $this->get('manager.property');
-        $properties         = $propertyManager->addProperties();
-
-        return array(
-            'properties' => $properties,
-        );
-    }
-
-
 	/**
-     * @Get
-	 * @Route("properties/search")
+     * @Get("properties/search")
 	 */
     public function getPropertiesSearchAction(Request $request)
     {
@@ -65,7 +50,6 @@ class PropertiesController extends FOSRestController
         $sale           = $request->query->get('sale');
         $placeIdList    = explode(',', $placeIdList);
 
-
         $places = $placeManager->getPlacesByIds($placeIdList);
 
         $properties = $propertyManager->searchProperties($places, $rent, $sale);
@@ -76,17 +60,17 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Options
+     * @Options("properties/{id}")
      * @param $id
      * @return array
      */
-    public function optionsPropertiesAction($id)
+    public function optionsPutPropertiesAction($id)
     {
         return array();
     }
 
     /**
-     * @Put
+     * @Put("properties/{id}")
      * @param Request $request
      * @param $id
      * @return array
@@ -110,6 +94,41 @@ class PropertiesController extends FOSRestController
             'success'   => false,
             'errors'    => $form->getErrors()
         );
+    }
+
+    /**
+     * @Options("properties")
+     * @return array
+     */
+    public function optionsPostPropertiesAction()
+    {
+        return array();
+    }
+    /**
+     * @Post("properties")
+     * @param Request $request
+     * @return array
+     */
+    public function postPropertiesAction(Request $request)
+    {
+        $propertyManager    = $this->get('manager.property');
+
+        $property = new Property();
+        $property->setName('Sample name');
+        $property->setDescription('Sample Description');
+        $asset = new PropertyAsset();
+        $asset->setImages(array());
+        $property->setAsset($asset);
+        $location =  new Location();
+        $location->type = 'Point';
+        $location->coordinates = array(
+            103.725337,
+            1.352033
+        );
+        $property->setLocation($location);
+        $propertyManager->save($property);
+        return $property;
+
     }
 
     /**
@@ -173,6 +192,5 @@ class PropertiesController extends FOSRestController
                 'image'     => $e->getMessage()
             );
         }
-
     }
 }
