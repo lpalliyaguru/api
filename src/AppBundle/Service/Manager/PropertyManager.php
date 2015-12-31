@@ -5,6 +5,7 @@ namespace AppBundle\Service\Manager;
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 use Doctrine\Common\Util\Debug;
 use AppBundle\Document\Property;
+use Monolog\Handler\Mongo;
 
 class PropertyManager
 {
@@ -31,28 +32,24 @@ class PropertyManager
 
     public function addProperties()
     {
-        $propertyData = array(
-          'name'        => 'Test',
-          'address'     => 'Test Address',
-          'condition'   => '',
-          'description' => '',
-          'type'        => 'Point',
-          'zip'         => '',
+
+        $property =  new Property();
+        $asset    =  new PropertyAsset();
+        $mongoId  =  new Mongo();
+        $location =  new Location();
+
+        $property->setId($mongoId);
+        $property->setName('Sample name');
+        $property->setDescription('Sample Description');
+        $asset->setImages(array());
+        $property->setAsset($asset);
+        $location->type = 'Point';
+        $location->coordinates = array(
+            103.725337,
+            1.352033
         );
+        $property->setLocation($location);
 
-        $property = new Property();
-
-        $property
-            ->setName($propertyData['name'])
-            ->setAddress($propertyData['address'])
-            ->setCondition($propertyData['condition'])
-            ->setDescription($propertyData['description'])
-            ->setType($propertyData['type'])
-            ->setZip($propertyData['zip'])
-        ;
-
-        $this->documentManager->persist($property);
-        $this->documentManager->flush();
 
         return $property;
     }

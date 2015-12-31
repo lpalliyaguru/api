@@ -112,23 +112,11 @@ class PropertiesController extends FOSRestController
     public function postPropertiesAction(Request $request)
     {
         $propertyManager    = $this->get('manager.property');
+        $properties         = $propertyManager->addProperties();
 
-        $property = new Property();
-        $property->setName('Sample name');
-        $property->setDescription('Sample Description');
-        $asset = new PropertyAsset();
-        $asset->setImages(array());
-        $property->setAsset($asset);
-        $location =  new Location();
-        $location->type = 'Point';
-        $location->coordinates = array(
-            103.725337,
-            1.352033
+        return array(
+            'properties' => $properties,
         );
-        $property->setLocation($location);
-        $propertyManager->save($property);
-        return $property;
-
     }
 
     /**
