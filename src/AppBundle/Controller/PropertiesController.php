@@ -105,7 +105,7 @@ class PropertiesController extends FOSRestController
             $propertyManager->save($property);
             return $property;
         }
-
+ 
 		return array(
             'success'   => false,
             'errors'    => $form->getErrors()
