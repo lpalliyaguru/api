@@ -12,17 +12,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-use FOS\RestBundle\Controller\Annotations\Route;
-use FOS\RestBundle\Controller\Annotations\Put;
-use FOS\RestBundle\Controller\Annotations\Post;
-use FOS\RestBundle\Controller\Annotations\Get;
-use FOS\RestBundle\Controller\Annotations\Options;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
 class PropertiesController extends FOSRestController
 {
 	/**
-     * @Get("properties")
+     * @Rest\Get("properties")
      */
     public function getPropertiesAction(Request $request)
     {
@@ -38,7 +33,7 @@ class PropertiesController extends FOSRestController
     }
 
 	/**
-     * @Get("properties/search")
+     * @Rest\Get("properties/search")
 	 */
     public function getPropertiesSearchAction(Request $request)
     {
@@ -60,7 +55,7 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Options("properties/{id}")
+     * @Rest\Options("properties/{id}")
      * @param $id
      * @return array
      */
@@ -70,7 +65,7 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Put("properties/{id}")
+     * @Rest\Put("properties/{id}")
      * @param Request $request
      * @param $id
      * @return array
@@ -97,15 +92,16 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Options("properties")
+     * @Rest\Options("properties")
      * @return array
      */
     public function optionsPostPropertiesAction()
     {
         return array();
     }
+
     /**
-     * @Post("properties")
+     * @Rest\Post("properties")
      * @param Request $request
      * @return array
      */
@@ -132,8 +128,7 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Get
-     * @Route("properties/{id}")
+     * @Rest\Get("properties/{id}")
      */
     public function getPropertyAction($id)
     {
@@ -149,7 +144,7 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Options
+     * @Rest\Options
      * @param $id
      * @return array
      */
@@ -159,7 +154,7 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Post
+     * @Rest\Post
      * @return array
      */
     public function postPropertiesImageAction(Request $request, $id)
