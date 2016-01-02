@@ -12,17 +12,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-use FOS\RestBundle\Controller\Annotations\Route;
-use FOS\RestBundle\Controller\Annotations\Put;
-use FOS\RestBundle\Controller\Annotations\Post;
-use FOS\RestBundle\Controller\Annotations\Get;
-use FOS\RestBundle\Controller\Annotations\Options;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
 class PropertiesController extends FOSRestController
 {
 	/**
-     * @Get("properties")
+     * Get a properties
+     * @Rest\Get("properties")
      */
     public function getPropertiesAction(Request $request)
     {
@@ -38,7 +34,8 @@ class PropertiesController extends FOSRestController
     }
 
 	/**
-     * @Get("properties/search")
+     * Search a  property based on defferent criteria
+     * @Rest\Get("properties/search")
 	 */
     public function getPropertiesSearchAction(Request $request)
     {
@@ -60,7 +57,8 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Options("properties/{id}")
+     * Allow options method to the update property endpoint. purpose of this endpoint is to allow CORS
+     * @Rest\Options("properties/{id}")
      * @param $id
      * @return array
      */
@@ -70,14 +68,14 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Put("properties/{id}")
+     * Update the property data
+     * @Rest\Put("properties/{id}")
      * @param Request $request
      * @param $id
      * @return array
      */
     public function putPropertiesAction(Request $request, $id)
     {
-        $data               = $request->getContent();
         $propertyManager    = $this->get('manager.property');
         $property           = $propertyManager->getOneById($id);
         $form               = $this->get('form.factory')->createNamed('', new PropertyType(), $property);
@@ -97,15 +95,18 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Options("properties")
+     * Allow options method to the property create endpoint. purpose of this endpoint is to allow CORS
+     * @Rest\Options("properties")
      * @return array
      */
     public function optionsPostPropertiesAction()
     {
         return array();
     }
+
     /**
-     * @Post("properties")
+     * Create the property object.
+     * @Rest\Post("properties")
      * @param Request $request
      * @return array
      */
@@ -120,8 +121,8 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Get
-     * @Route("properties/{id}")
+     * Get the property object
+     * @Rest\Get("properties/{id}")
      */
     public function getPropertyAction($id)
     {
@@ -137,7 +138,8 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Options
+     * Allow options method to the image add endpoint. purpose of this endpoint is to allow CORS
+     * @Rest\Options("properties/{id}/images")
      * @param $id
      * @return array
      */
@@ -147,7 +149,8 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * @Post
+     * Add images to the existing property
+     * @Rest\Post("properties/{id}/images")
      * @return array
      */
     public function postPropertiesImageAction(Request $request, $id)
