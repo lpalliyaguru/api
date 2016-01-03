@@ -7,38 +7,50 @@ use AppBundle\Document\Property;
 use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\Annotation\Exclude;
+use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ODM\Document
  * @ODM\Document(repositoryClass="AppBundle\Document\Repository\UserRepository")
+ * @ODM\HasLifecycleCallbacks
  *
  */
-class User
+class User implements BaseUserInterface
 {
     const TYPE_LANDLORD = 'LANDLORD';
     const TYPE_TENENT   = 'TENANT';
+
     /**
      * @ODM\Id
+     *
      */
     private $id;
 
     /**
      * @ODM\String
+     * @ODM\UniqueIndex(order="asc")
+     * @Assert\NotBlank()
+     *
      */
     private $username;
 
     /**
      * @ODM\String
+     * @Assert\NotBlank(message = "Name cannot be empty")
      */
     private $name;
 
     /**
      * @ODM\String
+     * @Assert\NotBlank(message = "Email cannot be empty")
+     * @Assert\Email(message = "Email Should be in valid format")
      */
     private $email;
 
     /**
      * @ODM\String
+     * @Assert\NotBlank(message = "Type cannot be empty")
      */
     private $type;
 
@@ -51,6 +63,18 @@ class User
      * @ODM\String
      */
     private $phone;
+
+    /**
+     * @ODM\String
+     * @Exclude()
+     */
+    private $password;
+
+    /**
+     * @Assert\NotBlank(message = "Password cannot be empty")
+     * @Exclude()
+     */
+    private $plainPassword;
 
     /**
      * @ODM\Date
@@ -163,7 +187,7 @@ class User
      * @param string $email
      * @return User
      */
-    public function setProfilePicture($profilePic)
+    public function setProfilePic($profilePic)
     {
         $this->profilePic = $profilePic;
 
@@ -175,7 +199,7 @@ class User
      *
      * @return string
      */
-    public function getProfilePicture()
+    public function getProfilePic()
     {
         return $this->profilePic;
     }
@@ -250,6 +274,29 @@ class User
     }
 
     /**
+     * Set Password
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get Password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
      * Get username
      *
      * @return string
@@ -268,6 +315,29 @@ class User
     public function setUsername($username)
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get Plain password
+     *
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * Set plain passoword
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
 
         return $this;
     }
@@ -293,5 +363,38 @@ class User
         $this->properties = $properties;
 
         return $this;
+    }
+
+    /**
+     * @ODM\PrePersist
+     */
+    public function prePersist()
+    {
+        if($this->created == null) {
+            $this->created = new \DateTime(null);
+        }
+    }
+
+    /**
+     * @ODM\PreUpdate
+     */
+    public function preUpdate()
+    {
+        $this->updated = new \DateTime(null);
+    }
+
+    public function getRoles ()
+    {
+        return array();
+    }
+
+    public function getSalt()
+    {
+        return '';
+    }
+
+    public function eraseCredentials()
+    {
+
     }
 }
