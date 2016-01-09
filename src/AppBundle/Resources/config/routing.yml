@@ -1,7 +1,1 @@
-organisation:
-    type: rest
-    resource: AppBundle\Controller\OrganisationController
 
-user:
-    type: rest
-    resource: AppBundle\Controller\UserController

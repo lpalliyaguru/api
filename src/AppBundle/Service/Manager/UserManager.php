@@ -20,4 +20,11 @@ class UserManager
     {
         return $this->repository->findOneByUsername($username);
     }
+
+    public function save($user)
+    {
+        $this->documentManager->persist($user);
+        $this->documentManager->flush();
+        return true;
+    }
 }

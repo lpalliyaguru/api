@@ -3,11 +3,6 @@ users :
   resource: "AppBundle:User"
   name_prefix:  api_
 
-organisations :
-  type: rest
-  resource: "AppBundle:Organisation"
-  name_prefix:  api_
-
 Properties :
   type: rest
   resource: "AppBundle:Properties"
@@ -16,4 +11,9 @@ Properties :
 Places :
   type: rest
   resource: "AppBundle:Places"
+  name_prefix:  api_
+
+Auth :
+  type: rest
+  resource: "AppBundle:Auth"
   name_prefix:  api_

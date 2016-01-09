@@ -20,9 +20,10 @@ class PlacesController extends Controller
         return array(
             "total_count"           => 6964,
             "incomplete_results"    => false,
-            'items'                  => $places
+            'items'                 => $places
         );
     }
+
 
     public function getPlacesSearchAction(Request $request)
     {

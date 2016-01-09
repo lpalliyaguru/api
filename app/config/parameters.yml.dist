@@ -28,3 +28,5 @@ parameters:
     amazon_aws_secret_key: /EhACxXm3jAndmePdqOLfON0W4ASOHKK5hnC/Jol
     amazon_s3_bucket_name: 'etoeproperty'
     amazon_s3_base_url: 'https://s3-ap-southeast-1.amazonaws.com/etoeproperty/assets'
+    encrypt_salt : '$w34asl@yui'
+    jwt_key: 'abadefghijkl'

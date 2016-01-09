@@ -1,11 +1,20 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
+    encoders:
+        AppBundle\Document\User:
+            algorithm:        sha512
+            encode_as_base64: true
+            iterations:       10
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        secure_api_provider:
+            id: app.user.provider
+
+    role_hierarchy:
+            ROLE_ADMIN:       ROLE_USER
+            ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -13,8 +22,8 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            anonymous: ~
+        #main:
+            #anonymous: ~
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -22,3 +31,21 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+        register:
+            pattern:  ^/api/register$
+            security: false
+
+        login:
+            pattern:  ^/api/login$
+            security: false
+
+        session:
+            pattern:  ^/api/session$
+            security: false
+
+        api:
+            pattern: ^/api/.*
+            stateless: true
+            secure-api: true
+            provider: secure_api_provider

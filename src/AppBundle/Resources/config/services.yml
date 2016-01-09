@@ -4,8 +4,13 @@ parameters:
   class.manager.property      : AppBundle\Service\Manager\PropertyManager
   class.manager.user          : AppBundle\Service\Manager\UserManager
   class.manager.place         : AppBundle\Service\Manager\PlaceManager
+  class.manager.token         : AppBundle\Service\Manager\ApiTokenManager
+  class.encryptor             : AppBundle\Service\Encryptor
   class.core.amazon_s3        : AmazonS3
   class.manager.media         : AppBundle\Service\Manager\MediaManager
+  class.app.user.provider     : AppBundle\Security\User\ApiUserProvider
+  app_secure_api.security.authentication.provider.class: AppBundle\Security\Authentication\Provider\ApiProvider
+  app_secure_api.security.authentication.listener.class: AppBundle\Security\Firewall\ApiListener
 
 services:
   listner.api:
@@ -30,6 +35,10 @@ services:
         class : %class.manager.place%
         arguments: [@doctrine_mongodb]
 
+  manager.api_token:
+        class : %class.manager.token%
+        arguments: [@doctrine_mongodb, %jwt_key%]
+
   e2e_core.amazon_s3:
       class: %class.core.amazon_s3%
       arguments:
@@ -38,6 +47,10 @@ services:
   manager.media:
       class: %class.manager.media%
       arguments: [@photo_storage_filesystem]
+
+  app.encryptor:
+      class: %class.encryptor%
+      arguments: [%encrypt_salt%]
 
   e2e.aws_s3.client:
       class: Aws\S3\S3Client
@@ -51,3 +64,15 @@ services:
               version : 'latest'
               http :
                  { verify : false }
+
+  secure_api.security.authentication.provider:
+      class: %app_secure_api.security.authentication.provider.class%
+      arguments: [@app.user.provider]
+
+  secure_api.security.authentication.listener:
+      class: %app_secure_api.security.authentication.listener.class%
+      arguments: ["@security.context", "@security.authentication.manager"]
+
+  app.user.provider:
+      class: %class.app.user.provider%
+      arguments: [@doctrine_mongodb, @manager.user, @manager.api_token]
