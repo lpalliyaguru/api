@@ -5,6 +5,8 @@ namespace AppBundle\Document;
 use AppBundle\Document\User;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use JMS\Serializer\Annotation\Exclude;
+
 /**
  * @ODM\Document
  * @ODM\Document(repositoryClass="AppBundle\Document\Repository\AccessTokenRepository")
@@ -13,9 +15,10 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
  */
 class AccessToken
 {
+    const ISSUER = 'e2e.property';
     /**
      * @ODM\Id
-     *
+     * @Exclude()
      */
     private $id;
 
@@ -31,6 +34,7 @@ class AccessToken
 
     /**
      * @ODM\ReferenceOne(targetDocument="User")
+     * @Exclude()
      */
     private $user;
 
@@ -41,9 +45,15 @@ class AccessToken
 
     /**
      * @ODM\Date
+     * @Exclude()
      */
     private $created;
 
+    /**
+     * @ODM\String
+     * @Exclude()
+     */
+    private $device;
 
     public function getId()
     {
@@ -103,5 +113,15 @@ class AccessToken
     public function setCreated($date)
     {
         $this->created = $date;
+    }
+
+    public function getDevice()
+    {
+        return $this->created;
+    }
+
+    public function setDevice($device)
+    {
+        $this->device = $device;
     }
 }

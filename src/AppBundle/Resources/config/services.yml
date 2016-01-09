@@ -5,6 +5,7 @@ parameters:
   class.manager.user          : AppBundle\Service\Manager\UserManager
   class.manager.place         : AppBundle\Service\Manager\PlaceManager
   class.manager.token         : AppBundle\Service\Manager\ApiTokenManager
+  class.encryptor             : AppBundle\Service\Encryptor
   class.core.amazon_s3        : AmazonS3
   class.manager.media         : AppBundle\Service\Manager\MediaManager
   class.app.user.provider     : AppBundle\Security\User\ApiUserProvider
@@ -36,7 +37,7 @@ services:
 
   manager.api_token:
         class : %class.manager.token%
-        arguments: [@doctrine_mongodb]
+        arguments: [@doctrine_mongodb, %jwt_key%]
 
   e2e_core.amazon_s3:
       class: %class.core.amazon_s3%
@@ -46,6 +47,10 @@ services:
   manager.media:
       class: %class.manager.media%
       arguments: [@photo_storage_filesystem]
+
+  app.encryptor:
+      class: %class.encryptor%
+      arguments: [%encrypt_salt%]
 
   e2e.aws_s3.client:
       class: Aws\S3\S3Client

@@ -30,7 +30,9 @@ class ApiUserProvider implements  ApiUserProviderInterface
      */
     public function loadUserByTokenAndDevice($token, $device)
     {
-        $token = $this->tokenManager->getTokenByAccessToken($token);
+        $this->tokenManager->validateAccessToken($token);
+
+        $token = $this->tokenManager->getTokenByAccessTokenAndDevice($token, $device);
 
         if($token instanceof AccessToken) {
             return $token->getUser();
@@ -53,4 +55,5 @@ class ApiUserProvider implements  ApiUserProviderInterface
     {
         return true;
     }
+
 }

@@ -92,6 +92,17 @@ class User implements BaseUserInterface
     private $properties;
 
     /**
+     * @ODM\Collection
+     */
+    private $roles;
+
+    /**
+     * @ODM\String
+     * @Exclude()
+     */
+    private $salt;
+
+    /**
      * Get id
      *
      * @return integer
@@ -390,7 +401,12 @@ class User implements BaseUserInterface
 
     public function getSalt()
     {
-        return '';
+        return $this->salt;
+    }
+
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
     }
 
     public function eraseCredentials()

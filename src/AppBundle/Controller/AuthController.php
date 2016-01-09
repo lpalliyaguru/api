@@ -13,31 +13,76 @@ use Symfony\Component\HttpFoundation\Request;
 class AuthController extends FOSRestController
 {
     /**
+     * CORS setting
+     * @Rest\Options("login")
+     */
+    public function optionsLoginAction(Request $request)
+    {
+    }
+
+    /**
+     * @Rest\Post("login")
+     */
+    public function postLoginAction(Request $request)
+    {
+        $username = $request->request->get('username');
+        $password = $request->request->get('password');
+        $userAgent = $request->headers->get('User-Agent');
+
+        $encoderFactory = $this->get('security.encoder_factory');
+        $userManager    = $this->get('manager.user');
+        $tokenManager   = $this->get('manager.api_token');
+        $user           = $userManager->getOneByUsername($username);
+
+        if($user) {
+            $encoder = $encoderFactory->getEncoder($user);
+            $validPassword = $encoder->isPasswordValid(
+                $user->getPassword(),
+                $password,
+                $user->getSalt()
+            );
+
+            if($validPassword) {
+                $accessToken = $tokenManager->createNewToken($user, $userAgent);
+            }
+
+            return $accessToken;
+        }
+
+        return array();
+
+    }
+
+    /**
+     * CORS setting
+     * @Rest\Options("register")
+     */
+    public function optionsRegisterAction(Request $request)
+    {
+    }
+
+    /**
      * @Rest\Post("register")
      */
-    public function registerAction(Request $request)
+    public function postRegisterAction(Request $request)
     {
         $user           = new User();
         $userManager    = $this->get('manager.user');
         $tokenManager   = $this->get('manager.api_token');
+        $encryptor      = $this->get('app.encryptor');
+        $encoderFactory = $this->get('security.encoder_factory');
         $form           = $this->get('form.factory')->create(new RegisterType(), $user);
         $json_data      = json_decode($request->getContent(), true);
-
-        $password = $this->get('security.password_encoder')
-            ->encodePassword($user, $user->getPlainPassword());
-
-        $user->setPassword($password);
         $form->bind($json_data);
 
         if($form->isValid()) {
-
-            $token = new AccessToken();
-            $token->setAccessToken('1234abcd');
-            $token->setRefreshToken('1234xyz');
-            $token->setExpires(new \DateTime('2016-02-04'));
-            $token->setUser($user);
+            $encoder    = $encoderFactory->getEncoder($user);
+            $salt       = $encryptor->encrypt($user->getName());
+            $user->setSalt($salt);
+            $password   = $encoder->encodePassword($user->getPlainPassword(), $user->getSalt());
+            $user->setPassword($password);
             $userManager->save($user);
-            $tokenManager->save($token);
+
             return $user;
         }
 
@@ -47,5 +92,4 @@ class AuthController extends FOSRestController
         );
 
     }
-
 }

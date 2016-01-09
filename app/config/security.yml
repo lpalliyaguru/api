@@ -35,6 +35,11 @@ security:
         register:
             pattern:  ^/api/register$
             security: false
+
+        login:
+            pattern:  ^/api/login$
+            security: false
+
         session:
             pattern:  ^/api/session$
             security: false
