@@ -80,6 +80,7 @@ class PropertyManager
     {
         $this->documentManager->persist($property);
         $this->documentManager->flush();
+
         return true;
     }
 }
