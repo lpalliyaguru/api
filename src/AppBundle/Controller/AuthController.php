@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Document\AccessToken;
 use AppBundle\Document\User;
 use AppBundle\Form\RegisterType;
 
@@ -18,6 +19,7 @@ class AuthController extends FOSRestController
     {
         $user           = new User();
         $userManager    = $this->get('manager.user');
+        $tokenManager   = $this->get('manager.api_token');
         $form           = $this->get('form.factory')->create(new RegisterType(), $user);
         $json_data      = json_decode($request->getContent(), true);
 
@@ -28,7 +30,14 @@ class AuthController extends FOSRestController
         $form->bind($json_data);
 
         if($form->isValid()) {
+
+            $token = new AccessToken();
+            $token->setAccessToken('1234abcd');
+            $token->setRefreshToken('1234xyz');
+            $token->setExpires(new \DateTime('2016-02-04'));
+            $token->setUser($user);
             $userManager->save($user);
+            $tokenManager->save($token);
             return $user;
         }
 
