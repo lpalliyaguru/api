@@ -23,7 +23,11 @@ class RegisterType extends AbstractType
                 'email'
             )
             ->add(
-                'name',
+                'firstName',
+                'text'
+            )
+            ->add(
+                'lastName',
                 'text'
             )
             ->add(

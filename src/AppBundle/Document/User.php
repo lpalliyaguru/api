@@ -37,9 +37,15 @@ class User implements BaseUserInterface
 
     /**
      * @ODM\String
-     * @Assert\NotBlank(message = "Name cannot be empty")
+     * @Assert\NotBlank(message = "First Name cannot be empty")
      */
-    private $name;
+    private $firstName;
+
+    /**
+     * @ODM\String
+     * @Assert\NotBlank(message = "Last Name cannot be empty")
+     */
+    private $lastName;
 
     /**
      * @ODM\String
@@ -144,6 +150,52 @@ class User implements BaseUserInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setFirstName($fname)
+    {
+        $this->firstName = $fname;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setLastName($lname)
+    {
+        $this->lastName = $lname;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
     }
 
     /**

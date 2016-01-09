@@ -74,16 +74,19 @@ class AuthController extends FOSRestController
         $form           = $this->get('form.factory')->create(new RegisterType(), $user);
         $json_data      = json_decode($request->getContent(), true);
         $form->bind($json_data);
-
+        sleep(3);
         if($form->isValid()) {
             $encoder    = $encoderFactory->getEncoder($user);
-            $salt       = $encryptor->encrypt($user->getName());
+            $salt       = $encryptor->encrypt($user->getFirstName(). $user->getLastName());
             $user->setSalt($salt);
             $password   = $encoder->encodePassword($user->getPlainPassword(), $user->getSalt());
             $user->setPassword($password);
             $userManager->save($user);
 
-            return $user;
+            return array(
+                'success' => true,
+                'user'    => $user
+            );
         }
 
         return array(
