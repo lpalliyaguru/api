@@ -51,7 +51,7 @@ class ApiTokenManager
         $tokenInfo  = array(
             "iss"       => AccessToken::ISSUER,
             "iat"       => $time->getTimestamp(),
-            "name"      => $user->getName(),
+            "name"      => $user->getFirstName() . ' ' . $user->getLasttName(),
             "username"  => $user->getUsername(),
             "type"      => $type
         );
