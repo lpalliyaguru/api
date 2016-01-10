@@ -81,6 +81,7 @@ class AuthController extends FOSRestController
             $user->setSalt($salt);
             $password   = $encoder->encodePassword($user->getPlainPassword(), $user->getSalt());
             $user->setPassword($password);
+            $user->setProfilePic('/images/avatar.png');
             $userManager->save($user);
 
             return array(
