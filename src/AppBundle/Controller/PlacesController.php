@@ -36,6 +36,24 @@ class PlacesController extends Controller
             'success'   => true,
             'data'      => $places
          );
+    }
 
+    /**
+     * Get the nearest locations of the property
+     * @Rest\Get("places/nearby")
+     * @param Request $request
+     * @return array
+     */
+    public function getPlacesNearByAction(Request $request)
+    {
+        $placeManager    = $this->get('manager.place');
+        $longitude       = $request->query->get('longitude');
+        $latitude        = $request->query->get('latitude');
+
+        $places = $placeManager->getPropertyPlaces($longitude,$latitude);
+
+        return array(
+            'places'   => $places
+        );
     }
 }
