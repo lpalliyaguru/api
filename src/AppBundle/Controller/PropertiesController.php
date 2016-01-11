@@ -87,7 +87,7 @@ class PropertiesController extends FOSRestController
             $propertyManager->save($property);
             return $property;
         }
- 
+
 		return array(
             'success'   => false,
             'errors'    => $form->getErrors()
@@ -113,11 +113,15 @@ class PropertiesController extends FOSRestController
     public function postPropertiesAction(Request $request)
     {
         $propertyManager    = $this->get('manager.property');
-        $properties         = $propertyManager->addProperties();
+        $property         = $propertyManager->addProperty();
 
-        return array(
-            'properties' => $properties,
-        );
+        $view = $this
+            ->view($property, 200)
+            ->setTemplate("AppBundle:Properties:getProperty.html.twig")
+            ->setTemplateVar('property')
+        ;
+
+        return $view;
     }
 
     /**

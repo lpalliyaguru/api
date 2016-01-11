@@ -5,6 +5,9 @@ namespace AppBundle\Service\Manager;
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 use Doctrine\Common\Util\Debug;
 use AppBundle\Document\Property;
+use AppBundle\Document\PropertyAsset;
+use AppBundle\Document\Location;
+use Monolog\Handler\MongoId;
 
 class PropertyManager
 {
@@ -29,15 +32,11 @@ class PropertyManager
         return $qb = $this->repository->find($id);
     }
 
-    public function addProperties()
+    public function addProperty()
     {
-
-        $property =  new Property();
-        $asset    =  new PropertyAsset();
-        $mongoId  =  new \MongoId();
-        $location =  new Location();
-
-        $property->setId($mongoId);
+        $property = new Property();
+        $asset    = new PropertyAsset();
+        $location = new Location();
         $property->setName('Sample name');
         $property->setDescription('Sample Description');
         $asset->setImages(array());
@@ -48,6 +47,7 @@ class PropertyManager
             1.352033
         );
         $property->setLocation($location);
+        $this->save($property);
         return $property;
     }
 
