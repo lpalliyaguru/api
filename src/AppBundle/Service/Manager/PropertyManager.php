@@ -5,7 +5,6 @@ namespace AppBundle\Service\Manager;
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 use Doctrine\Common\Util\Debug;
 use AppBundle\Document\Property;
-use Monolog\Handler\Mongo;
 
 class PropertyManager
 {
@@ -35,7 +34,7 @@ class PropertyManager
 
         $property =  new Property();
         $asset    =  new PropertyAsset();
-        $mongoId  =  new Mongo();
+        $mongoId  =  new \MongoId();
         $location =  new Location();
 
         $property->setId($mongoId);
@@ -49,8 +48,6 @@ class PropertyManager
             1.352033
         );
         $property->setLocation($location);
-
-
         return $property;
     }
 
@@ -61,7 +58,6 @@ class PropertyManager
         foreach ($places as $place) {
             $properties = $this->repository->search($place, $rent, $sale);
             $this->pushProperties($properties);
-
         }
         return $this->properties;
     }
