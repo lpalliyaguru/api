@@ -25,14 +25,14 @@ class AuthController extends FOSRestController
      */
     public function postLoginAction(Request $request)
     {
-        $username = $request->request->get('username');
-        $password = $request->request->get('password');
-        $userAgent = $request->headers->get('User-Agent');
+        $email      = $request->request->get('email');
+        $password   = $request->request->get('password');
+        $userAgent  = $request->headers->get('User-Agent');
 
         $encoderFactory = $this->get('security.encoder_factory');
         $userManager    = $this->get('manager.user');
         $tokenManager   = $this->get('manager.api_token');
-        $user           = $userManager->getOneByUsername($username);
+        $user           = $userManager->getOneByEmail($email);
 
         if($user) {
             $encoder = $encoderFactory->getEncoder($user);
@@ -74,7 +74,7 @@ class AuthController extends FOSRestController
         $form           = $this->get('form.factory')->create(new RegisterType(), $user);
         $json_data      = json_decode($request->getContent(), true);
         $form->bind($json_data);
-        sleep(3);
+
         if($form->isValid()) {
             $encoder    = $encoderFactory->getEncoder($user);
             $salt       = $encryptor->encrypt($user->getFirstName(). $user->getLastName());

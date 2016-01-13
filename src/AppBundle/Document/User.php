@@ -30,7 +30,6 @@ class User implements BaseUserInterface
     /**
      * @ODM\String
      * @ODM\UniqueIndex(order="asc")
-     * @Assert\NotBlank()
      *
      */
     private $username;
@@ -413,6 +412,10 @@ class User implements BaseUserInterface
         if($this->created == null) {
             $this->created = new \DateTime(null);
         }
+
+        if(\is_null($this->username)) {
+            $this->username = strtolower($this->email) . '-' . rand(100, 100000);
+        }
     }
 
     /**
@@ -442,4 +445,5 @@ class User implements BaseUserInterface
     {
 
     }
+
 }
