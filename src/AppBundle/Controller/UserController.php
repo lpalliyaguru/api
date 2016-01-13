@@ -30,14 +30,14 @@ class UserController extends FOSRestController
 
     /**
      * @Get
-     * @Route("users/{username}")
+     * @Route("users/{id}")
      */
-    public function getUserAction(Request $request, $username)
+    public function getUserAction(Request $request, $id)
     {
         $userManager = $this->get('manager.user');
 
         $view = $this
-            ->view($userManager->getOneByUsername($username), 200)
+            ->view($userManager->getOne($id), 200)
             ->setTemplate("AppBundle:User:getUser.html.twig")
             ->setTemplateVar('user')
         ;

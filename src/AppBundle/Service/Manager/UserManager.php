@@ -27,4 +27,9 @@ class UserManager
         $this->documentManager->flush();
         return true;
     }
+
+    public function getOne($id)
+    {
+        return $this->repository->find($id);
+    }
 }
