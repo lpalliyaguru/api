@@ -4,6 +4,7 @@ namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\SerializedName;
 
 use AppBundle\Document\Location;
 use AppBundle\Document\User;
@@ -24,6 +25,15 @@ class Property
         'LND' => 'Landed House',
         'CND' => 'Condo'
     );
+
+    /**
+     * @Exclude
+     */
+    static $saleTypes = array(
+        'sale' => 'Sale',
+        'rent' => 'Rent'
+    );
+
     /**
      * @ODM\Id
      */
@@ -43,6 +53,7 @@ class Property
      * @ODM\String
      */
     protected $description;
+
     /**
      * @ODM\String
      */
@@ -132,6 +143,12 @@ class Property
      * @ODM\EmbedOne(targetDocument="Preferred")
      */
     protected $preferred;
+
+    /**
+     * @ODM\String
+     * @SerializedName("saleType")
+     */
+    protected $saleType;
 
     /**
      * @ODM\EmbedOne(targetDocument="Meta")
@@ -389,11 +406,22 @@ class Property
     public function setPublished($flag)
     {
         $this->published = $flag;
+        return $this;
     }
 
     public function getPublished()
     {
         return $this->published;
+    }
+
+    public function setSaletype($type)
+    {
+        $this->saleType = $type;
+    }
+
+    public function getSaletype()
+    {
+        return $this->saleType;
     }
 
     public function getMeta()

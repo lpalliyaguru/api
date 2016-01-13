@@ -63,6 +63,13 @@ class PropertyType extends AbstractType
                 'published',
                 'checkbox'
             )
+            ->add(
+                'saleType',
+                'choice',
+                array(
+                    'choices' => Property::$saleTypes
+                )
+            )
             /*->add(
                 'preferred',
                 'document',
