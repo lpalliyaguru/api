@@ -18,6 +18,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class UserController extends FOSRestController
 {
 
+
+    /**
+     * @Options
+     * @Route("users/{username}")
+     */
+    public function optionsUserAction(Request $request, $username)
+    {
+        return array();
+    }
+
     /**
      * @Get
      * @Route("users/{username}")

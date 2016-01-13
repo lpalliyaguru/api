@@ -22,9 +22,9 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            anonymous: ~
-            pattern: ^/
+        #main:
+            #anonymous: ~
+           # pattern: ^/
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -46,7 +46,8 @@ security:
             security: false
 
         api:
-            pattern: ^/apid/.*
+            pattern: ^/api/.*
             stateless: true
             secure-api: true
+            anonymous: true
             provider: secure_api_provider

@@ -30,11 +30,15 @@ class ApiListener implements ListenerInterface
 
     public function handle(GetResponseEvent $event)
     {
+
         $request = $event->getRequest();
+
+        if($request->getMethod() == 'OPTIONS') {
+            return ;
+        }
 
         if (!$request->headers->has('Authentication')) {
             $event->setResponse($this->createForbiddenResponse());
-
             return;
         }
 

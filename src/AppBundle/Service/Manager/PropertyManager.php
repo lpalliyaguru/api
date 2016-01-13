@@ -7,7 +7,7 @@ use Doctrine\Common\Util\Debug;
 use AppBundle\Document\Property;
 use AppBundle\Document\PropertyAsset;
 use AppBundle\Document\Location;
-use Monolog\Handler\MongoId;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class PropertyManager
 {
@@ -15,11 +15,13 @@ class PropertyManager
     protected $repository;
     protected $properties;
     protected $propertyIds;
+    protected $security;
 
-    public function __construct(ManagerRegistry $registryManager)
+    public function __construct(ManagerRegistry $registryManager, SecurityContext $security)
     {
         $this->documentManager  = $registryManager->getManager();
         $this->repository       = $registryManager->getRepository('AppBundle:Property');
+        $this->security         = $security;
     }
 
     public function getAll()
@@ -37,8 +39,10 @@ class PropertyManager
         $property = new Property();
         $asset    = new PropertyAsset();
         $location = new Location();
+        $landLord = $this->security->getToken()->getUser();
         $property->setName('Sample name');
         $property->setDescription('Sample Description');
+        $property->setOwner($landLord);
         $asset->setImages(array());
         $property->setAsset($asset);
         $location->type = 'Point';
