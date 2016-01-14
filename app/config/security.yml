@@ -41,6 +41,16 @@ security:
             pattern:  ^/api/login$
             security: false
 
+        get_places:
+            pattern:  ^/api/places(/search)?$
+            methods: [GET,OPTIONS]
+            security: false
+
+        get_places:
+            pattern:  ^/api/properties(/search)?$
+            methods: [GET,OPTIONS]
+            security: false
+
         session:
             pattern:  ^/api/session$
             security: false
