@@ -7,6 +7,7 @@ use Doctrine\Common\Util\Debug;
 use AppBundle\Document\Property;
 use AppBundle\Document\PropertyAsset;
 use AppBundle\Document\Location;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\SecurityContext;
 
 class PropertyManager
@@ -15,13 +16,13 @@ class PropertyManager
     protected $repository;
     protected $properties;
     protected $propertyIds;
-    protected $security;
+    protected $tokenStorage;
 
-    public function __construct(ManagerRegistry $registryManager, SecurityContext $security)
+    public function __construct(ManagerRegistry $registryManager, TokenStorage $tokenStorage)
     {
         $this->documentManager  = $registryManager->getManager();
         $this->repository       = $registryManager->getRepository('AppBundle:Property');
-        $this->security         = $security;
+        $this->tokenStorage     = $tokenStorage;
     }
 
     public function getAll()
@@ -39,7 +40,7 @@ class PropertyManager
         $property = new Property();
         $asset    = new PropertyAsset();
         $location = new Location();
-        $landLord = $this->security->getToken()->getUser();
+        $landLord = $this->tokenStorage->getToken()->getUser();
         $property->setName('Sample name');
         $property->setDescription('Sample Description');
         $property->setOwner($landLord);

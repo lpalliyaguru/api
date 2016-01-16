@@ -25,7 +25,7 @@ services:
 
   manager.property:
       class : %class.manager.property%
-      arguments: [@doctrine_mongodb, @security.context]
+      arguments: [@doctrine_mongodb, @security.token_storage]
 
   manager.user:
       class : %class.manager.user%
