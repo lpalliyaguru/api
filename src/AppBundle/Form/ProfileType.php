@@ -16,15 +16,31 @@ class ProfileType extends AbstractType
         $builder
             ->add(
                 'email',
-                'email'
+                'email',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank(),
+                        new Assert\Email()
+                    )
+                )
             )
             ->add(
                 'firstName',
-                'text'
+                'text',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank()
+                    )
+                )
             )
             ->add(
                 'lastName',
-                'text'
+                'text',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank()
+                    )
+                )
             )
             ->add(
                 'phone',
@@ -34,12 +50,10 @@ class ProfileType extends AbstractType
                 'profilePic',
                 'text'
             )
-            /*->add('plainPassword', 'repeated', array(
-                    'type' => 'password',
-                    'first_options'  => array('label' => 'Password'),
-                    'second_options' => array('label' => 'Repeat Password'),
+            ->add(
+                'address',
+                'text'
                 )
-            )*/
             ->addEventListener(FormEvents::POST_SUBMIT, array($this, 'postSetData'))
         ;
     }

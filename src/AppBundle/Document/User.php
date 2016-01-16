@@ -39,28 +39,23 @@ class User implements BaseUserInterface
 
     /**
      * @ODM\String
-     * @Assert\NotBlank(message = "First Name cannot be empty")
      * @SerializedName("firstName")
      */
     private $firstName;
 
     /**
-     * @ODM\String
-     * @Assert\NotBlank(message = "Last Name cannot be empty")
      * @SerializedName("lastName")
      */
     private $lastName;
 
     /**
-     * @ODM\String
-     * @Assert\NotBlank(message = "Email cannot be empty")
-     * @Assert\Email(message = "Email Should be in valid format")
+     *
      */
     private $email;
 
     /**
      * @ODM\String
-     * @Assert\NotBlank(message = "Type cannot be empty")
+     *
      */
     private $type;
 
@@ -77,12 +72,17 @@ class User implements BaseUserInterface
 
     /**
      * @ODM\String
+     */
+    private $address;
+
+    /**
+     * @ODM\String
      * @Exclude()
      */
     private $password;
 
     /**
-     * @Assert\NotBlank(message = "Password cannot be empty")
+     *
      * @Exclude()
      */
     private $plainPassword;
@@ -270,6 +270,29 @@ class User implements BaseUserInterface
     public function getPhone()
     {
         return $this->phone;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 
     /**

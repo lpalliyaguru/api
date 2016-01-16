@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserController extends FOSRestController
 {
@@ -98,20 +100,35 @@ class UserController extends FOSRestController
     public function putUserAction(Request $request, $id)
     {
         $userManager    = $this->get('manager.user');
-        $user           = $userManager->getOne($id);
-        $form           = $this->get('form.factory')->createNamed('', new ProfileType(), $user);
+        $security       = $this->get('security.context');
+        $updatingUser   = $userManager->getOne($id);
+        $form           = $this->get('form.factory')->createNamed('', new ProfileType(), $updatingUser);
         $json_data      = json_decode($request->getContent(), true);
+        $sessionUser    = $security->getToken()->getUser();
 
-        $form->bind($json_data);
+        try {
 
-        if($form->isValid()) {
-            $userManager->save($user);
-            return $user;
+            if(!$sessionUser instanceof UserInterface || $sessionUser->getId() !== $updatingUser->getId()) { throw new \Exception('Not authorized', 403); }
+            $form->bind($json_data);
+
+            if($form->isValid()) {
+                $userManager->save($updatingUser);
+                return $updatingUser;
+            }
+
+            return array(
+                'success'   => false,
+                'errors'    => $form->getErrors()
+            );
         }
-
-        return array(
-            'success'   => false,
-            'errors'    => $form->getErrors()
-        );
+        catch(\Exception $e)
+        {
+            return $this->view(array(
+                'success'   => false,
+                'message'   => $e->getMessage()
+                ),
+                $e->getCode()
+            );
+        }
     }
 }
