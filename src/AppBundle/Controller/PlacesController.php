@@ -57,7 +57,7 @@ class PlacesController extends Controller
      */
     public function optionsPlacesSearchAction(Request $request)
     {
-        
+
     }
 
     /**
