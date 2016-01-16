@@ -14,7 +14,7 @@ class PlaceManager
 {
     public static $iconMap = array(
         'hospital'          => 'fa fa-hospital-o',
-        'neighborhood'      => 'fa fa fa-hospital',
+        'neighborhood'      => 'fa fa-hospital-o',
         'school'            => 'fa fa-university',
         'point_of_interest' => 'fa fa-hand-pointer-o',
         'lodging'           => 'fa fa-bed',
@@ -23,6 +23,7 @@ class PlaceManager
         'shopping_mall'     => 'fa fa-shopping-cart',
         'locality'          => 'fa fa-location-arrow',
         'Point'             => 'fa fa-hand-pointer-o',
+        'Store'             => 'fa-shopping-basket',
     );
 
     protected $documentManager;
