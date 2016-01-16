@@ -76,11 +76,11 @@ class PlaceManager
         $places = $this->getPlaces($latitude.','.$longitude);
         $storedPlaces = array();
         $property->setPlaces(array());
-        
+
         foreach($places as $key => $placeData) {
 
-            $place = new Place();
-            $duplicatedPlace = $this->getOneByName($placeData['name']);
+            $place              = new Place();
+            $duplicatedPlace    = $this->getOneByName($placeData['name']);
 
             if(is_null($duplicatedPlace)) {
                 $place
@@ -95,8 +95,8 @@ class PlaceManager
                     $place->setLocation($location);
                 }
 
-                $meta = new Meta();
-                $meta->created = $meta->updated = new \DateTime();
+                $meta           = new Meta();
+                $meta->created  s= $meta->updated = new \DateTime();
                 $place->setMeta($meta);
 
                 $this->documentManager->persist($place);
@@ -110,6 +110,7 @@ class PlaceManager
                 $property->addPlace($duplicatedPlace);
             }
         }
+
         $this->documentManager->persist($property);
         $this->documentManager->flush();
 
