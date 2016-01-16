@@ -49,7 +49,7 @@ class User implements BaseUserInterface
     private $lastName;
 
     /**
-     *
+     * @ODM\String
      */
     private $email;
 
