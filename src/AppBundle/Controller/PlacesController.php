@@ -80,20 +80,37 @@ class PlacesController extends Controller
 
     /**
      * Get the nearest locations of the property
+     * @Rest\Options("places/nearby")
+     * @param Request $request
+     * @return array
+     */
+    public function optionsPlacesNearByAction(Request $request)
+    {
+
+    }
+
+    /**
+     * Get the nearest locations of the property
      * @Rest\Get("places/nearby")
      * @param Request $request
      * @return array
      */
     public function getPlacesNearByAction(Request $request)
     {
-        $placeManager    = $this->get('manager.place');
+        $placeManager       = $this->get('manager.place');
+        $propertyManager    = $this->get('manager.property');
+
         $longitude       = $request->query->get('longitude');
         $latitude        = $request->query->get('latitude');
+        $propertyId      = $request->query->get('propertyId');
 
-        $places = $placeManager->getPropertyPlaces($longitude,$latitude);
+        $property        = $propertyManager->getOneById($propertyId);
+
+        $places = $placeManager->getPropertyPlaces($property, $longitude,$latitude);
 
         return array(
             'places'   => $places
         );
     }
 }
+

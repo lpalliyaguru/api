@@ -9,6 +9,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use AppBundle\Document\Location;
 use AppBundle\Document\User;
 use AppBundle\Document\Preferred;
+use AppBundle\Document\Place;
 
 /**
  * @ODM\Document
@@ -143,6 +144,11 @@ class Property
      * @ODM\EmbedOne(targetDocument="Preferred")
      */
     protected $preferred;
+
+    /**
+     * @ODM\ReferenceMany(targetDocument="Place")
+     */
+    private $places;
 
     /**
      * @ODM\String
@@ -384,6 +390,22 @@ class Property
     public function getPreferred()
     {
         return $this->preferred;
+    }
+
+    public function setPlaces($places)
+    {
+        $this->places = $places;
+        return $this;
+    }
+
+    public function getPlaces()
+    {
+        return $this->places;
+    }
+
+    public function addPlace($place)
+    {
+        $this->places[] = $place;
     }
 
     public function setCreated($created)

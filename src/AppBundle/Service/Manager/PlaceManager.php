@@ -5,14 +5,28 @@ namespace AppBundle\Service\Manager;
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 use Doctrine\Common\Util\Debug;
 use AppBundle\Document\Place;
+use AppBundle\Document\Property;
 use AppBundle\Document\Location;
 use AppBundle\Document\Meta;
 use Monolog\Handler\Mongo;
 
 class PlaceManager
 {
+    public static $iconMap = array(
+        'hospital'          => 'fa fa-hospital-o',
+        'neighborhood'      => 'fa fa fa-hospital',
+        'school'            => 'fa fa-university',
+        'point_of_interest' => 'fa fa-hand-pointer-o',
+        'lodging'           => 'fa fa-bed',
+        'restaurant'        => 'fa fa-glass',
+        'establishment'     => 'fa fa-hospital',
+        'shopping_mall'     => 'fa fa-shopping-cart',
+        'locality'          => 'fa fa-location-arrow',
+        'Point'             => 'fa fa-hand-pointer-o',
+    );
 
     protected $documentManager;
+
     protected $repository;
 
     public function __construct(ManagerRegistry $registryManager)
@@ -51,16 +65,19 @@ class PlaceManager
         return $places;
     }
 
-    public function getPropertyPlaces($longitude,$latitude)
+    public function getPropertyPlaces($property, $longitude, $latitude)
     {
         $places = $this->getPlaces($latitude.','.$longitude);
+        $storedPlaces = array();
 
-        foreach($places as $placeData) {
+        foreach($places as $key => $placeData) {
 
             $place = new Place();
+
             $place
                 ->setName($placeData['name'])
                 ->setType($placeData['types'][0])
+                ->setIcon(self::$iconMap[$placeData['types'][0]])
             ;
 
             if(isset($placeData['geometry']['location'])) {
@@ -75,11 +92,15 @@ class PlaceManager
             $place->setMeta($meta);
 
             $this->documentManager->persist($place);
+            $storedPlaces[] = $place;
+            if($key < 6 ) {
+                $property->addPlace($place);
+            }
         }
 
         $this->documentManager->flush();
 
-        return $places;
+        return $storedPlaces;
     }
 
     private function getPlaces($latlng, $radius = 1000)

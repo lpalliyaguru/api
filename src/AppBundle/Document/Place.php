@@ -33,6 +33,11 @@ class Place
     /**
      * @ODM\String
      */
+    private $icon;
+
+    /**
+     * @ODM\String
+     */
     private $address;
 
     /**
@@ -108,6 +113,29 @@ class Place
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get Icon
+     *
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     * @return String
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
 
         return $this;
     }
