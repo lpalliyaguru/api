@@ -56,9 +56,9 @@ class PlaceManager
         return $this->repository->find($id);
     }
 
-    public function getByName($name)
+    public function getOneByName($name)
     {
-        return $this->repository->find(array('name' => $name));
+        return $this->repository->findOneBy(array('name' => $name));
     }
 
 
@@ -79,9 +79,9 @@ class PlaceManager
         foreach($places as $key => $placeData) {
 
             $place = new Place();
-            $duplicatedPlaces = $this->getByName($placeData['name']);
+            $duplicatedPlace = $this->getByName($placeData['name']);
 
-            if(count($duplicatedPlaces) == 0 ) {
+            if(is_null($duplicatedPlace)) {
                 $place
                     ->setName($placeData['name'])
                     ->setType($placeData['types'][0])
@@ -104,8 +104,11 @@ class PlaceManager
                     $property->addPlace($place);
                 }
             }
+            else {
+                $property->addPlace($duplicatedPlace);
+            }
         }
-
+        $this->documentManager->persist($property);
         $this->documentManager->flush();
 
         return $storedPlaces;
