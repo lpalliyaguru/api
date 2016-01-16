@@ -16,19 +16,40 @@ class RegisterType extends AbstractType
         $builder
             ->add(
                 'email',
-                'email'
+                'email',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank(),
+                        new Assert\Email()
+                    )
+                )
             )
             ->add(
                 'firstName',
-                'text'
+                'text',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank()
+                    )
+                )
             )
             ->add(
                 'lastName',
-                'text'
+                'text',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank()
+                    )
+                )
             )
             ->add(
                 'phone',
-                'text'
+                'text',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank()
+                    )
+                )
             )
             ->add(
                 'profilePic',
@@ -36,9 +57,17 @@ class RegisterType extends AbstractType
             )
             ->add(
                 'type',
-                'text'
+                'text',
+                array(
+                    'constraints' => array(
+                        new Assert\NotBlank()
+                    )
+                )
             )
             ->add('plainPassword', 'repeated', array(
+                    'constraints' => array(
+                        new Assert\NotBlank()
+                    ),
                     'type' => 'password',
                     'first_options'  => array('label' => 'Password'),
                     'second_options' => array('label' => 'Repeat Password'),
@@ -50,7 +79,7 @@ class RegisterType extends AbstractType
 
     public function postSetData()
     {
-        error_log(__METHOD__);
+
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
