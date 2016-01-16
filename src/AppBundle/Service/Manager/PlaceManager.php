@@ -106,7 +106,7 @@ class PlaceManager
                 }
             }
             else {
-                $storedPlaces[] = $place;
+                $storedPlaces[] = $duplicatedPlace;
                 $property->addPlace($duplicatedPlace);
             }
         }
