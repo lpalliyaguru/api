@@ -45,9 +45,9 @@ security:
             methods: [GET,OPTIONS]
             security: false
 
-        get_places:
-            pattern:  ^/api/properties(/search)?$
-            methods: [GET,OPTIONS]
+        get_properties:
+            pattern:  ^/api/properties([/a-z0-9])*$
+            methods: [GET, OPTIONS]
             security: false
 
         session:
@@ -55,7 +55,7 @@ security:
             security: false
 
         api:
-            pattern: ^/apir/.*
+            pattern: ^/api/.*
             stateless: true
             secure-api: true
             anonymous: true

@@ -78,7 +78,7 @@ class PlaceManager
             $place
                 ->setName($placeData['name'])
                 ->setType($placeData['types'][0])
-                ->setIcon(self::$iconMap[$placeData['types'][0]])
+                ->setIcon(isset(self::$iconMap[$placeData['types'][0]]) ? self::$iconMap[$placeData['types'][0]] : 'fa fa-map-marker')
             ;
 
             if(isset($placeData['geometry']['location'])) {
