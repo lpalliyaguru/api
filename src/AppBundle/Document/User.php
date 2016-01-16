@@ -98,7 +98,7 @@ class User implements BaseUserInterface
     private $updated;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="Property")
+     * @ODM\ReferenceMany(targetDocument="Property", mappedBy="owner")
      */
     private $properties;
 

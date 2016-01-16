@@ -71,7 +71,7 @@ class Property
     protected $tags;
 
     /**
-     * @ODM\ReferenceOne(targetDocument="User")
+     * @ODM\ReferenceOne(targetDocument="User", inversedBy="properties")
      */
     protected $owner;
 
