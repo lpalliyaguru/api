@@ -56,6 +56,12 @@ class PlaceManager
         return $this->repository->find($id);
     }
 
+    public function getByName($name)
+    {
+        return $this->repository->find(array('name' => $name));
+    }
+
+
     public function getPlacesByIds($list)
     {
         $places = array();
@@ -73,6 +79,9 @@ class PlaceManager
         foreach($places as $key => $placeData) {
 
             $place = new Place();
+            $duplicatedPlaces = $this->getByName($placeData['name']);
+
+            if(count($duplicatedPlaces) > 0 ) { continue; }
 
             $place
                 ->setName($placeData['name'])
