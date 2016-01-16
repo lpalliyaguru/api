@@ -81,29 +81,28 @@ class PlaceManager
             $place = new Place();
             $duplicatedPlaces = $this->getByName($placeData['name']);
 
-            if(count($duplicatedPlaces) > 0 ) { continue; }
+            if(count($duplicatedPlaces) == 0 ) {
+                $place
+                    ->setName($placeData['name'])
+                    ->setType($placeData['types'][0])
+                    ->setIcon(isset(self::$iconMap[$placeData['types'][0]]) ? self::$iconMap[$placeData['types'][0]] : 'fa fa-map-marker');
 
-            $place
-                ->setName($placeData['name'])
-                ->setType($placeData['types'][0])
-                ->setIcon(isset(self::$iconMap[$placeData['types'][0]]) ? self::$iconMap[$placeData['types'][0]] : 'fa fa-map-marker')
-            ;
+                if (isset($placeData['geometry']['location'])) {
+                    $location = new Location();
+                    $location->coordinates[0] = (float)$placeData['geometry']['location']['lng'];
+                    $location->coordinates[1] = (float)$placeData['geometry']['location']['lat'];
+                    $place->setLocation($location);
+                }
 
-            if(isset($placeData['geometry']['location'])) {
-                $location       = new Location();
-                $location->coordinates[0]    = (float)$placeData['geometry']['location']['lng'];
-                $location->coordinates[1]    = (float)$placeData['geometry']['location']['lat'];
-                $place->setLocation($location);
-            }
+                $meta = new Meta();
+                $meta->created = $meta->updated = new \DateTime();
+                $place->setMeta($meta);
 
-            $meta = new Meta();
-            $meta->created = $meta->updated = new \DateTime();
-            $place->setMeta($meta);
-
-            $this->documentManager->persist($place);
-            $storedPlaces[] = $place;
-            if($key < 6 ) {
-                $property->addPlace($place);
+                $this->documentManager->persist($place);
+                $storedPlaces[] = $place;
+                if ($key < 6) {
+                    $property->addPlace($place);
+                }
             }
         }
 
