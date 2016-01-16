@@ -96,7 +96,7 @@ class PlaceManager
                 }
 
                 $meta           = new Meta();
-                $meta->created  s= $meta->updated = new \DateTime();
+                $meta->created  = $meta->updated = new \DateTime();
                 $place->setMeta($meta);
 
                 $this->documentManager->persist($place);
