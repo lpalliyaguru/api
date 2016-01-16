@@ -2,13 +2,16 @@
 
 namespace AppBundle\Document;
 
-use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
-use AppBundle\Document\Property;
+
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\Annotation\Exclude;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+
+use AppBundle\Document\Property;
 
 /**
  * @ODM\Document
@@ -30,7 +33,6 @@ class User implements BaseUserInterface
     /**
      * @ODM\String
      * @ODM\UniqueIndex(order="asc")
-     * @Assert\NotBlank()
      *
      */
     private $username;
@@ -38,12 +40,14 @@ class User implements BaseUserInterface
     /**
      * @ODM\String
      * @Assert\NotBlank(message = "First Name cannot be empty")
+     * @SerializedName("firstName")
      */
     private $firstName;
 
     /**
      * @ODM\String
      * @Assert\NotBlank(message = "Last Name cannot be empty")
+     * @SerializedName("lastName")
      */
     private $lastName;
 
@@ -62,6 +66,7 @@ class User implements BaseUserInterface
 
     /**
      * @ODM\String
+     * @SerializedName("profilePic")
      */
     private $profilePic;
 
@@ -127,29 +132,6 @@ class User implements BaseUserInterface
     {
         $this->id = $id;
         return $this;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -436,6 +418,10 @@ class User implements BaseUserInterface
         if($this->created == null) {
             $this->created = new \DateTime(null);
         }
+
+        if(\is_null($this->username)) {
+            $this->username = strtolower($this->email) . '-' . rand(100, 100000);
+        }
     }
 
     /**
@@ -465,4 +451,5 @@ class User implements BaseUserInterface
     {
 
     }
+
 }

@@ -12,6 +12,32 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 class PlacesController extends Controller
 {
 
+
+    /**
+     * @Rest\Options("places")
+     * @param Request $request
+     * @return array
+     */
+    public function optionsPlacesAction(Request $request)
+    {
+
+    }
+    /**
+     * @Rest\Post("places")
+     * @param Request $request
+     * @return array
+     */
+    public function postPlacesAction(Request $request)
+    {
+        var_dump(__METHOD__);
+        exit();
+    }
+
+    /**
+     * @Rest\Get("places")
+     * @param Request $request
+     * @return array
+     */
     public function getPlacesAction(Request $request)
     {
         $placeManager   = $this->get('manager.place');
@@ -24,7 +50,21 @@ class PlacesController extends Controller
         );
     }
 
+    /**
+     * @Rest\Options("places/search")
+     * @param Request $request
+     * @return array
+     */
+    public function optionsPlacesSearchAction(Request $request)
+    {
+        
+    }
 
+    /**
+     * @Rest\Get("places/search")
+     * @param Request $request
+     * @return array
+     */
     public function getPlacesSearchAction(Request $request)
     {
         $keyWord = $request->query->get('query');

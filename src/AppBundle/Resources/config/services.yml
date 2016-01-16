@@ -15,7 +15,7 @@ parameters:
 services:
   listner.api:
     class: %class.api.response.listener%
-    arguments: [%app_main_web_site%, %accepted_http_methods%]
+    arguments: [%app_main_web_site%, %accepted_http_methods%, %http_accept_headers%]
     tags:
       - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
 
@@ -25,7 +25,7 @@ services:
 
   manager.property:
       class : %class.manager.property%
-      arguments: [@doctrine_mongodb]
+      arguments: [@doctrine_mongodb, @security.context]
 
   manager.user:
       class : %class.manager.user%

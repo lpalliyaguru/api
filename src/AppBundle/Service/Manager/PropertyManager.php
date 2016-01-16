@@ -5,7 +5,9 @@ namespace AppBundle\Service\Manager;
 use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
 use Doctrine\Common\Util\Debug;
 use AppBundle\Document\Property;
-use Monolog\Handler\Mongo;
+use AppBundle\Document\PropertyAsset;
+use AppBundle\Document\Location;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class PropertyManager
 {
@@ -13,11 +15,13 @@ class PropertyManager
     protected $repository;
     protected $properties;
     protected $propertyIds;
+    protected $security;
 
-    public function __construct(ManagerRegistry $registryManager)
+    public function __construct(ManagerRegistry $registryManager, SecurityContext $security)
     {
         $this->documentManager  = $registryManager->getManager();
         $this->repository       = $registryManager->getRepository('AppBundle:Property');
+        $this->security         = $security;
     }
 
     public function getAll()
@@ -30,17 +34,15 @@ class PropertyManager
         return $qb = $this->repository->find($id);
     }
 
-    public function addProperties()
+    public function addProperty()
     {
-
-        $property =  new Property();
-        $asset    =  new PropertyAsset();
-        $mongoId  =  new Mongo();
-        $location =  new Location();
-
-        $property->setId($mongoId);
+        $property = new Property();
+        $asset    = new PropertyAsset();
+        $location = new Location();
+        $landLord = $this->security->getToken()->getUser();
         $property->setName('Sample name');
         $property->setDescription('Sample Description');
+        $property->setOwner($landLord);
         $asset->setImages(array());
         $property->setAsset($asset);
         $location->type = 'Point';
@@ -49,8 +51,7 @@ class PropertyManager
             1.352033
         );
         $property->setLocation($location);
-
-
+        $this->save($property);
         return $property;
     }
 
@@ -61,7 +62,6 @@ class PropertyManager
         foreach ($places as $place) {
             $properties = $this->repository->search($place, $rent, $sale);
             $this->pushProperties($properties);
-
         }
         return $this->properties;
     }

@@ -21,10 +21,9 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-        main:
-            anonymous: ~
-            pattern: ^/
+        #main:
+            #anonymous: ~
+           # pattern: ^/
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -41,6 +40,16 @@ security:
             pattern:  ^/api/login$
             security: false
 
+        get_places:
+            pattern:  ^/api/places(/search)?$
+            methods: [GET,OPTIONS]
+            security: false
+
+        get_places:
+            pattern:  ^/api/properties(/search)?$
+            methods: [GET,OPTIONS]
+            security: false
+
         session:
             pattern:  ^/api/session$
             security: false
@@ -49,4 +58,5 @@ security:
             pattern: ^/apir/.*
             stateless: true
             secure-api: true
+            anonymous: true
             provider: secure_api_provider

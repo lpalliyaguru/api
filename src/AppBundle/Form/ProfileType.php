@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class RegisterType extends AbstractType
+class ProfileType extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -34,23 +34,19 @@ class RegisterType extends AbstractType
                 'profilePic',
                 'text'
             )
-            ->add(
-                'type',
-                'text'
-            )
-            ->add('plainPassword', 'repeated', array(
+            /*->add('plainPassword', 'repeated', array(
                     'type' => 'password',
                     'first_options'  => array('label' => 'Password'),
                     'second_options' => array('label' => 'Repeat Password'),
                 )
-            )
+            )*/
             ->addEventListener(FormEvents::POST_SUBMIT, array($this, 'postSetData'))
         ;
     }
 
     public function postSetData()
     {
-        error_log(__METHOD__);
+
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
