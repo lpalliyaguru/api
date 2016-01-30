@@ -14,6 +14,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class UserController extends FOSRestController
 {
@@ -28,6 +29,17 @@ class UserController extends FOSRestController
     }
 
     /**
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Get the user information",
+     *  parameters={
+     *      {"name"="id", "dataType"="string", "required"=true, "description"="user id"},
+     *  }
+     * )
      * @Rest\Get("user/{id}")
      */
     public function getUserAction(Request $request, $id)
@@ -44,7 +56,14 @@ class UserController extends FOSRestController
     }
 
     /**
-     * Allow options method to the image add endpoint. purpose of this endpoint is to allow CORS
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Allow options method to the image add endpoint. purpose of this endpoint is to allow CORS",
+     * )
      * @Rest\Options("user/{id}/images")
      * @param $id
      * @return array
@@ -55,7 +74,17 @@ class UserController extends FOSRestController
     }
 
     /**
-     * Add images to the existing property
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Add the user image",
+     *  parameters={
+     *      {"name"="file", "dataType"="file", "required"=true, "description"="image of user"},
+     *  }
+     * )
      * @Rest\Post("user/{id}/images")
      * @return array
      */
@@ -91,7 +120,17 @@ class UserController extends FOSRestController
     }
 
     /**
-     * Update the property data
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Update the user data",
+     *  parameters={
+     *      {"name"="id", "dataType"="string", "required"=true, "description"="id of user"},
+     *  }
+     * )
      * @Rest\Put("user/{id}")
      * @param Request $request
      * @param $id

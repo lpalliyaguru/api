@@ -11,13 +11,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\Validator\Constraints\Null;
 
 class PropertiesController extends FOSRestController
 {
 	/**
-     * Get a properties
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Get Properties",
+     * )
      * @Rest\Get("properties")
      */
     public function getPropertiesAction(Request $request)
@@ -34,7 +43,19 @@ class PropertiesController extends FOSRestController
     }
 
 	/**
-     * Search a  property based on defferent criteria
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Search a  property based on different criteria",
+     *  parameters={
+     *      {"name"="places", "dataType"="string", "required"=true, "description"="place of the property"},
+     *      {"name"="rent", "dataType"="string", "required"=true, "description"="rent- Search Type"},
+     *      {"name"="sale", "dataType"="string", "required"=true, "description"="sale - Search Type"},
+     *  }
+     * )
      * @Rest\Get("properties/search")
 	 */
     public function getPropertiesSearchAction(Request $request)
@@ -47,9 +68,8 @@ class PropertiesController extends FOSRestController
         $sale           = $request->query->get('sale');
         $placeIdList    = explode(',', $placeIdList);
 
-        $places = $placeManager->getPlacesByIds($placeIdList);
-
-        $properties = $propertyManager->searchProperties($places, $rent, $sale);
+        $places      = array_filter($placeIdList) ? $placeManager->getPlacesByIds($placeIdList) : $placeManager->getAll();
+        $properties  = $propertyManager->searchProperties($places, $rent, $sale);
 
         return array(
             'properties' => $properties,
@@ -68,7 +88,17 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * Update the property data
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Update the property data",
+     *  parameters={
+     *      {"name"="id", "dataType"="string", "required"=true, "description"="id of the property"},
+     *  }
+     * )
      * @Rest\Put("properties/{id}")
      * @param Request $request
      * @param $id
@@ -105,7 +135,14 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * Create the property object.
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Create the property object"
+     * )
      * @Rest\Post("properties")
      * @param Request $request
      * @return array
@@ -125,7 +162,17 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * Get the property object
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Get the property object",
+     *  parameters={
+     *      {"name"="id", "dataType"="string", "required"=true, "description"="id of the property"},
+     *  }
+     * )
      * @Rest\Get("properties/{id}")
      */
     public function getPropertyAction($id)
@@ -142,7 +189,18 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * Allow options method to the image add endpoint. purpose of this endpoint is to allow CORS
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Allow options method to the image add endpoint. purpose of this endpoint is to allow CORS",
+     *  parameters={
+     *      {"name"="id", "dataType"="string", "required"=true, "description"="id of the property"},
+     *      {"name"="image", "dataType"="string", "required"=true, "description"="image of the property"},
+     *  }
+     * )
      * @Rest\Options("properties/{id}/images")
      * @param $id
      * @return array
@@ -153,9 +211,20 @@ class PropertiesController extends FOSRestController
     }
 
     /**
-     * Add images to the existing property
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Add images to the existing property",
+     *  parameters={
+     *      {"name"="id", "dataType"="string", "required"=true, "description"="id of the property"},
+     *      {"name"="image", "dataType"="string", "required"=true, "description"="image of the property"},
+     *  }
+     * )
      * @Rest\Post("properties/{id}/images")
-     * @return array
+     * @return array 
      */
     public function postPropertiesImageAction(Request $request, $id)
     {

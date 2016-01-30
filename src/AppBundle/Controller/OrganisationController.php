@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Document\User;
 use AppBundle\Form\RegisterType;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class OrganisationController extends Controller
 {
@@ -27,6 +28,14 @@ class OrganisationController extends Controller
     }
 
     /**
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Add new user",
+     * )
      * @Route("/organization/add")
      * @Template()
      * @param Request $request

@@ -9,6 +9,7 @@ use AppBundle\Form\RegisterType;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class AuthController extends FOSRestController
 {
@@ -21,6 +22,18 @@ class AuthController extends FOSRestController
     }
 
     /**
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Login To API",
+     *  parameters={
+     *      {"name"="email", "dataType"="string", "required"=true, "description"="email of the account"},
+     *      {"name"="password", "dataType"="string", "required"=true, "description"="password of the account"}
+     *  }
+     * )
      * @Rest\Post("login")
      */
     public function postLoginAction(Request $request)
@@ -62,6 +75,19 @@ class AuthController extends FOSRestController
     }
 
     /**
+     * This is the documentation description of your method, it will appear
+     * on a specific pane. It will read all the text until the first
+     * annotation.
+     * @ApiDoc(
+     *  resource=true,
+     *  description="User Account Registration API",
+     *  parameters={
+     *      {"name"="firstname", "dataType"="string", "required"=true, "description"="firstname of the account"},
+     *      {"name"="lastname", "dataType"="string", "required"=true, "description"="lastname of the account"},
+     *      {"name"="password", "dataType"="string", "required"=true, "description"="password of the account"},
+     *      {"name"="image",    "dataType"=".jpeg,png", "required"=true, "description"="profile picture of the account"}
+     *  }
+     * )
      * @Rest\Post("register")
      */
     public function postRegisterAction(Request $request)

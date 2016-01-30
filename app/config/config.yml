@@ -128,3 +128,5 @@ knp_gaufrette:
         photo_storage:
             adapter:    profile_photos
             alias:      photo_storage_filesystem
+
+nelmio_api_doc: ~
