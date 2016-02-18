@@ -23,7 +23,8 @@ class UserFixture extends AbstractFixture implements FixtureInterface, Container
         array(
             'username'  => 'lpalliyaguru',
             'email'     => 'pgmlmanoj@gmail.com',
-            'name'      => 'Manoj Lasantha',
+            'firstname' => 'Manoj',
+	    'lastname'  => 'Lasantha',
             'type'      => 'LANDLORD',
             'phone'     => '90294521'
 
@@ -42,7 +43,8 @@ class UserFixture extends AbstractFixture implements FixtureInterface, Container
 
             $user = new User();
             $user
-                ->setName($userData['name'])
+                ->setFirstName($userData['firstname'])
+                ->setLastName($userData['lastname'])
                 ->setType($userData['type'])
                 ->setEmail($userData['email'])
                 ->setUsername($userData['username'])

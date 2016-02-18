@@ -57,9 +57,11 @@ class AuthController extends FOSRestController
 
             if($validPassword) {
                 $accessToken = $tokenManager->createNewToken($user, $userAgent);
+		return array( 'access_token' => $accessToken, 'success' => true, 'user' => $user);
             }
+	    
 
-            return array( 'access_token' => $accessToken, 'success' => true, 'user' => $user);
+            
         }
 
         return array();
